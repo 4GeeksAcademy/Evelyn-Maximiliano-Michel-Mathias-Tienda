@@ -1,0 +1,161 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Carrito completo de Maison Riviera con productos agregados, cantidades, subtotal, impuestos y total final."
+    />
+    <meta name="keywords" content="carrito ecommerce, subtotal, impuestos, total compra" />
+    <title>Maison Riviera | Carrito</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Playfair+Display:wght@600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <link rel="stylesheet" href="assets/styles.css" />
+    <script src="assets/main.js" defer></script>
+  </head>
+  <body>
+    <header class="sticky top-0 z-30 border-b border-[#e4ddd4] bg-[#fffdf9]/95 backdrop-blur">
+      <div class="site-shell">
+        <nav class="flex items-center justify-between gap-4 py-4" aria-label="Principal">
+          <a href="index.html" class="brand-title text-2xl font-extrabold tracking-wide text-[#152235]">Maison Riviera</a>
+          <form class="hidden flex-1 max-w-xl items-center rounded-full border border-[#ddd4c7] bg-white px-4 py-2 md:flex" role="search" aria-label="Buscar productos">
+            <label for="search-cart" class="sr-only">Buscar</label>
+            <input id="search-cart" type="search" placeholder="Buscar en tienda" class="w-full border-0 bg-transparent text-sm focus:outline-none" />
+          </form>
+          <div class="hidden items-center gap-3 md:flex">
+            <a href="catalogo.html" class="rounded-full px-4 py-2 text-sm font-semibold hover:bg-[#f5eee6]">Catalogo</a>
+            <a href="checkout.html" class="rounded-full px-4 py-2 text-sm font-semibold hover:bg-[#f5eee6]">Checkout</a>
+            <button class="rounded-full border border-[#ddd4c7] px-4 py-2 text-sm font-semibold">Mi cuenta</button>
+          </div>
+          <button data-menu-toggle class="inline-flex rounded-lg border border-[#ddd4c7] px-3 py-2 text-sm font-semibold md:hidden" aria-label="Abrir menu">Menu</button>
+        </nav>
+        <div data-menu class="hidden space-y-2 border-t border-[#eee5d8] pb-4 pt-3 md:hidden">
+          <a href="index.html" class="block rounded-lg px-3 py-2 font-semibold hover:bg-[#f7efe6]">Home</a>
+          <a href="catalogo.html" class="block rounded-lg px-3 py-2 font-semibold hover:bg-[#f7efe6]">Catalogo</a>
+          <a href="producto.html" class="block rounded-lg px-3 py-2 font-semibold hover:bg-[#f7efe6]">Producto</a>
+          <a href="checkout.html" class="block rounded-lg px-3 py-2 font-semibold hover:bg-[#f7efe6]">Checkout</a>
+        </div>
+      </div>
+    </header>
+
+    <main class="site-shell py-8">
+      <section class="reveal">
+        <h1 class="text-4xl font-black text-[#152235]">Carrito de compra</h1>
+        <p class="mt-2">Revisa tus productos antes de continuar al pago.</p>
+      </section>
+
+      <section class="mt-7 grid gap-6 lg:grid-cols-[1.65fr_1fr]">
+        <article class="glass-panel overflow-hidden rounded-3xl" aria-label="Productos en carrito">
+          <div class="grid grid-cols-4 border-b border-[#e5dccf] bg-[#fff7ee] px-4 py-3 text-xs font-bold uppercase tracking-[0.12em] text-[#4b4f58]">
+            <span class="col-span-2">Producto</span>
+            <span>Precio</span>
+            <span>Total</span>
+          </div>
+
+          <div data-cart-lines>
+            <div data-cart-item data-price="190" class="grid grid-cols-4 items-center border-b border-[#eee4d8] px-4 py-4">
+              <div class="col-span-2 flex items-center gap-3">
+                <img src="https://images.unsplash.com/photo-1591047139829-d91aecb6caea?auto=format&fit=crop&w=300&q=80" alt="Chaqueta Marine Line" class="h-16 w-16 rounded-xl object-cover" />
+                <div>
+                  <h2 class="text-sm font-bold">Chaqueta Marine Line</h2>
+                  <div data-qty-wrap class="mt-2 flex w-fit items-center rounded-lg border border-[#d8cec1] bg-white">
+                    <button data-qty-minus type="button" class="px-3 py-1 text-base font-bold">-</button>
+                    <input data-qty-input type="number" min="1" max="20" value="1" class="w-10 border-x border-[#e5dbcf] text-center text-sm" />
+                    <button data-qty-plus type="button" class="px-3 py-1 text-base font-bold">+</button>
+                  </div>
+                </div>
+              </div>
+              <p class="text-sm font-semibold">EUR 190</p>
+              <p data-line-total class="text-sm font-bold text-[#152235]">EUR 190</p>
+            </div>
+
+            <div data-cart-item data-price="95" class="grid grid-cols-4 items-center border-b border-[#eee4d8] px-4 py-4">
+              <div class="col-span-2 flex items-center gap-3">
+                <img src="https://images.unsplash.com/photo-1548883354-94bcfe321cbb?auto=format&fit=crop&w=300&q=80" alt="Camisa Azure Stripe" class="h-16 w-16 rounded-xl object-cover" />
+                <div>
+                  <h2 class="text-sm font-bold">Camisa Azure Stripe</h2>
+                  <div data-qty-wrap class="mt-2 flex w-fit items-center rounded-lg border border-[#d8cec1] bg-white">
+                    <button data-qty-minus type="button" class="px-3 py-1 text-base font-bold">-</button>
+                    <input data-qty-input type="number" min="1" max="20" value="2" class="w-10 border-x border-[#e5dbcf] text-center text-sm" />
+                    <button data-qty-plus type="button" class="px-3 py-1 text-base font-bold">+</button>
+                  </div>
+                </div>
+              </div>
+              <p class="text-sm font-semibold">EUR 95</p>
+              <p data-line-total class="text-sm font-bold text-[#152235]">EUR 190</p>
+            </div>
+
+            <div data-cart-item data-price="58" class="grid grid-cols-4 items-center px-4 py-4">
+              <div class="col-span-2 flex items-center gap-3">
+                <img src="https://images.unsplash.com/photo-1516826957135-700dedea698c?auto=format&fit=crop&w=300&q=80" alt="Cinturon Classic Oak" class="h-16 w-16 rounded-xl object-cover" />
+                <div>
+                  <h2 class="text-sm font-bold">Cinturon Classic Oak</h2>
+                  <div data-qty-wrap class="mt-2 flex w-fit items-center rounded-lg border border-[#d8cec1] bg-white">
+                    <button data-qty-minus type="button" class="px-3 py-1 text-base font-bold">-</button>
+                    <input data-qty-input type="number" min="1" max="20" value="1" class="w-10 border-x border-[#e5dbcf] text-center text-sm" />
+                    <button data-qty-plus type="button" class="px-3 py-1 text-base font-bold">+</button>
+                  </div>
+                </div>
+              </div>
+              <p class="text-sm font-semibold">EUR 58</p>
+              <p data-line-total class="text-sm font-bold text-[#152235]">EUR 58</p>
+            </div>
+          </div>
+        </article>
+
+        <aside class="glass-panel rounded-3xl p-6" aria-label="Totalizacion">
+          <h2 class="text-2xl font-extrabold text-[#152235]">Resumen</h2>
+          <div class="mt-5 space-y-3 text-sm">
+            <p class="flex justify-between"><span>Subtotal</span><span data-subtotal class="font-semibold">EUR 0</span></p>
+            <p class="flex justify-between"><span>Impuestos (20%)</span><span data-tax class="font-semibold">EUR 0</span></p>
+            <div class="border-t border-[#e2d8ca] pt-3">
+              <p class="flex justify-between text-lg font-extrabold text-[#152235]"><span>Total</span><span data-total>EUR 0</span></p>
+            </div>
+          </div>
+
+          <a href="checkout.html" class="mt-6 block rounded-full bg-[#152235] px-4 py-3 text-center text-sm font-extrabold text-white">Comprar</a>
+        </aside>
+      </section>
+    </main>
+
+    <footer class="mt-14 border-t border-[#ded4c7] bg-[#fffaf3]">
+      <div class="site-shell grid gap-8 py-10 md:grid-cols-4">
+        <section>
+          <h4 class="text-lg font-bold text-[#152235]">Maison Riviera</h4>
+          <p class="mt-3 text-sm">Moda francesa para personas que buscan equilibrio entre comodidad, diseno y elegancia funcional.</p>
+        </section>
+        <section>
+          <h4 class="font-bold text-[#152235]">Categorias</h4>
+          <ul class="mt-3 space-y-2 text-sm">
+            <li><a href="catalogo.html" class="hover:text-[#246a73]">Calzado</a></li>
+            <li><a href="catalogo.html" class="hover:text-[#246a73]">Camisas</a></li>
+            <li><a href="catalogo.html" class="hover:text-[#246a73]">Pantalones</a></li>
+            <li><a href="catalogo.html" class="hover:text-[#246a73]">Accesorios</a></li>
+          </ul>
+        </section>
+        <section>
+          <h4 class="font-bold text-[#152235]">Legal</h4>
+          <ul class="mt-3 space-y-2 text-sm">
+            <li><a href="#" class="hover:text-[#246a73]">Terminos y condiciones</a></li>
+            <li><a href="#" class="hover:text-[#246a73]">Politica de privacidad</a></li>
+            <li><a href="#" class="hover:text-[#246a73]">Sobre la marca</a></li>
+          </ul>
+        </section>
+        <section>
+          <h4 class="font-bold text-[#152235]">Contacto</h4>
+          <ul class="mt-3 space-y-2 text-sm">
+            <li>Email: hello@maisonriviera.fr</li>
+            <li>Telefono: +33 1 84 00 22 18</li>
+            <li>Paris, France</li>
+          </ul>
+        </section>
+      </div>
+    </footer>
+  </body>
+</html>
