@@ -1,0 +1,139 @@
+:root {
+  --brand-ink: #152235;
+  --brand-sand: #f4efe8;
+  --brand-clay: #c76033;
+  --brand-sea: #246a73;
+  --brand-warm: #ffe7d1;
+  --surface: #fffdf9;
+  --text-main: #1e1f22;
+  --text-soft: #666b73;
+  --border-soft: #e4ddd4;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  background:
+    radial-gradient(circle at 5% 5%, rgba(199, 96, 51, 0.08), transparent 35%),
+    radial-gradient(circle at 90% 12%, rgba(36, 106, 115, 0.12), transparent 28%),
+    linear-gradient(165deg, #fcf8f2 0%, #fffefc 48%, #f5f7fa 100%);
+  color: var(--text-main);
+  font-family: "Manrope", "Segoe UI", sans-serif;
+}
+
+body {
+  min-height: 100vh;
+}
+
+h1,
+h2,
+h3,
+h4,
+.brand-title {
+  font-family: "Playfair Display", Georgia, serif;
+}
+
+p {
+  color: var(--text-soft);
+}
+
+.site-shell {
+  width: min(1280px, 92vw);
+  margin: 0 auto;
+}
+
+.glass-panel {
+  background: rgba(255, 253, 249, 0.84);
+  backdrop-filter: blur(8px);
+  border: 1px solid rgba(228, 221, 212, 0.85);
+  box-shadow: 0 15px 35px rgba(21, 34, 53, 0.08);
+}
+
+.hero-pattern {
+  background:
+    linear-gradient(120deg, rgba(21, 34, 53, 0.96), rgba(36, 106, 115, 0.88)),
+    url("https://images.unsplash.com/photo-1460353581641-37baddab0fa2?auto=format&fit=crop&w=1800&q=80") center/cover;
+}
+
+.reveal {
+  opacity: 0;
+  transform: translateY(15px);
+  animation: fade-slide 0.7s ease forwards;
+}
+
+.reveal-delay-1 {
+  animation-delay: 0.12s;
+}
+
+.reveal-delay-2 {
+  animation-delay: 0.22s;
+}
+
+.reveal-delay-3 {
+  animation-delay: 0.3s;
+}
+
+@keyframes fade-slide {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.product-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 18px 30px rgba(21, 34, 53, 0.12);
+}
+
+.product-card {
+  transition: transform 0.24s ease, box-shadow 0.24s ease;
+}
+
+.step-dot {
+  width: 2.2rem;
+  height: 2.2rem;
+  border-radius: 999px;
+  border: 1px solid var(--border-soft);
+  display: grid;
+  place-items: center;
+  font-weight: 700;
+  color: var(--text-soft);
+  background: #ffffff;
+}
+
+.step-dot.active {
+  border-color: var(--brand-sea);
+  color: white;
+  background: linear-gradient(135deg, #246a73, #2c8b97);
+}
+
+.step-dot.done {
+  border-color: var(--brand-clay);
+  color: white;
+  background: linear-gradient(135deg, #c76033, #d77952);
+}
+
+.badge-warm {
+  background: var(--brand-warm);
+  color: #8c3c1e;
+  border: 1px solid #efc39f;
+}
+
+input:focus,
+select:focus,
+textarea:focus,
+button:focus-visible {
+  outline: 2px solid rgba(36, 106, 115, 0.45);
+  outline-offset: 1px;
+}
+
+@media (max-width: 1024px) {
+  .site-shell {
+    width: min(1280px, 94vw);
+  }
+}
