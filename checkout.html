@@ -17,9 +17,13 @@
     />
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
     <link rel="stylesheet" href="assets/styles.css" />
+    <link rel="stylesheet" href="assets/input-error.css" />
     <script src="assets/main.js" defer></script>
   </head>
   <body>
+    <!-- =============================== -->
+    <!-- Encabezado y navegación global -->
+    <!-- =============================== -->
     <header class="sticky top-0 z-30 border-b border-[#e4ddd4] bg-[#fffdf9]/95 backdrop-blur">
       <div class="site-shell">
         <nav class="flex items-center justify-between gap-4 py-4" aria-label="Principal">
@@ -44,76 +48,89 @@
       </div>
     </header>
 
+
+    <!-- =============================== -->
+    <!-- Checkout: pasos visuales -->
+    <!-- =============================== -->
     <main class="site-shell py-8" data-checkout>
-      <section class="reveal">
-        <h1 class="text-4xl font-black text-[#152235]">Checkout</h1>
-        <p class="mt-2">Completa tu compra en tres pasos simples.</p>
-      </section>
-
-      <section class="mt-8 glass-panel rounded-3xl p-6 md:p-8">
-        <div class="flex items-center justify-between gap-2 sm:justify-start sm:gap-6">
-          <div class="flex items-center gap-2">
-            <span data-step-dot class="step-dot active">1</span>
-            <span class="text-xs font-semibold uppercase tracking-[0.12em]">Datos</span>
-          </div>
-          <div class="flex items-center gap-2">
-            <span data-step-dot class="step-dot">2</span>
-            <span class="text-xs font-semibold uppercase tracking-[0.12em]">Entrega</span>
-          </div>
-          <div class="flex items-center gap-2">
-            <span data-step-dot class="step-dot">3</span>
-            <span class="text-xs font-semibold uppercase tracking-[0.12em]">Pago</span>
-          </div>
+      <!-- Pasos del checkout -->
+      <div class="flex items-center justify-between gap-2 sm:justify-start sm:gap-6">
+        <div class="flex items-center gap-2">
+          <span data-step-dot class="step-dot active">1</span>
+          <span class="text-xs font-semibold uppercase tracking-[0.12em]">Datos</span>
         </div>
+        <div class="flex items-center gap-2">
+          <span data-step-dot class="step-dot">2</span>
+          <span class="text-xs font-semibold uppercase tracking-[0.12em]">Entrega</span>
+        </div>
+        <div class="flex items-center gap-2">
+          <span data-step-dot class="step-dot">3</span>
+          <span class="text-xs font-semibold uppercase tracking-[0.12em]">Pago</span>
+        </div>
+      </div>
 
-        <p data-status class="mt-4 text-sm font-semibold text-[#246a73]">Paso 1 de 3</p>
+      <!-- Panel principal del checkout -->
+      <section class="mt-8 glass-panel rounded-3xl p-6 md:p-8">
+        <p data-status class="text-sm font-semibold text-[#246a73]">Paso 1 de 3</p>
 
+        <!-- =============================== -->
+        <!-- Formulario de pasos del checkout -->
+        <!-- =============================== -->
         <form class="mt-5">
+          <!-- Paso 1: Datos personales -->
           <section data-step>
-            <h2 class="text-2xl font-extrabold text-[#152235]">1. Datos personales</h2>
+            <h2 class="text-2xl font-extrabold text-[#152235]">Datos personales</h2>
+            <p class="mt-2 text-sm text-[#5d6874]">Ingresa tu información de contacto para identificar y confirmar tu pedido.</p>
             <div class="mt-4 grid gap-4 md:grid-cols-2">
               <label class="text-sm font-semibold">Nombre
-                <input type="text" required placeholder="Ej: Claire" class="mt-1 w-full rounded-xl border border-[#ddd1c2] bg-white px-3 py-2" />
+                <input type="text" required data-only-letters pattern="[A-Za-zÁÉÍÓÚáéíóúÑñÜü\s]+" title="Solo letras" placeholder="Ej: Claire" class="mt-1 w-full rounded-xl border border-[#ddd1c2] bg-white px-3 py-2" />
               </label>
               <label class="text-sm font-semibold">Apellido
-                <input type="text" required placeholder="Ej: Bernard" class="mt-1 w-full rounded-xl border border-[#ddd1c2] bg-white px-3 py-2" />
+                <input type="text" required data-only-letters pattern="[A-Za-zÁÉÍÓÚáéíóúÑñÜü\s]+" title="Solo letras" placeholder="Ej: Bernard" class="mt-1 w-full rounded-xl border border-[#ddd1c2] bg-white px-3 py-2" />
               </label>
-              <label class="text-sm font-semibold md:col-span-2">Correo
-                <input type="email" required placeholder="Ej: claire@email.fr" class="mt-1 w-full rounded-xl border border-[#ddd1c2] bg-white px-3 py-2" />
+              <label class="text-sm font-semibold md:col-span-2">Email
+                <input type="email" required placeholder="Ej: claire@email.com" class="mt-1 w-full rounded-xl border border-[#ddd1c2] bg-white px-3 py-2" />
               </label>
             </div>
           </section>
 
+          <!-- Paso 2: Dirección de entrega -->
           <section data-step class="hidden">
-            <h2 class="text-2xl font-extrabold text-[#152235]">2. Direccion de entrega</h2>
+            <h2 class="text-2xl font-extrabold text-[#152235]">Dirección de entrega</h2>
+            <p class="mt-2 text-sm text-[#5d6874]">Completa la dirección donde quieres recibir tu compra.</p>
             <div class="mt-4 grid gap-4 md:grid-cols-2">
-              <label class="text-sm font-semibold md:col-span-2">Direccion
+              <label class="text-sm font-semibold md:col-span-2">Dirección
                 <input type="text" required placeholder="Ej: 24 Rue Lafayette" class="mt-1 w-full rounded-xl border border-[#ddd1c2] bg-white px-3 py-2" />
               </label>
               <label class="text-sm font-semibold">Ciudad
                 <input type="text" required placeholder="Paris" class="mt-1 w-full rounded-xl border border-[#ddd1c2] bg-white px-3 py-2" />
               </label>
-              <label class="text-sm font-semibold">Codigo postal
-                <input type="text" required placeholder="75009" class="mt-1 w-full rounded-xl border border-[#ddd1c2] bg-white px-3 py-2" />
+              <label class="text-sm font-semibold">Localidad
+                <input type="text" required placeholder="Ej: Montmartre, Palermo, Centro" class="mt-1 w-full rounded-xl border border-[#ddd1c2] bg-white px-3 py-2" />
               </label>
               <label class="text-sm font-semibold">Pais
-                <input type="text" required value="France" class="mt-1 w-full rounded-xl border border-[#ddd1c2] bg-white px-3 py-2" />
+                <input type="text" required placeholder="Ej: Francia" class="mt-1 w-full rounded-xl border border-[#ddd1c2] bg-white px-3 py-2" />
+              </label>
+              <label class="text-sm font-semibold">Codigo postal
+                <input type="text" required placeholder="75009" class="mt-1 w-full rounded-xl border border-[#ddd1c2] bg-white px-3 py-2" />
               </label>
             </div>
           </section>
 
+          <!-- Paso 3: Pago con tarjeta -->
           <section data-step class="hidden">
-            <h2 class="text-2xl font-extrabold text-[#152235]">3. Pago con tarjeta</h2>
+            <h2 class="text-2xl font-extrabold text-[#152235]">Pago con tarjeta</h2>
+            <p class="mt-2 text-sm text-[#5d6874]">Introduce los datos de tu tarjeta para finalizar el proceso de pago.</p>
             <div class="mt-4 grid gap-4 md:grid-cols-2">
-              <label class="text-sm font-semibold md:col-span-2">Nombre en tarjeta
+              <label class="text-sm font-semibold md:col-span-2">Titular de la tarjeta
                 <input type="text" required placeholder="Claire Bernard" class="mt-1 w-full rounded-xl border border-[#ddd1c2] bg-white px-3 py-2" />
               </label>
-              <label class="text-sm font-semibold md:col-span-2">Numero de tarjeta
-                <input type="text" required placeholder="4242 4242 4242 4242" class="mt-1 w-full rounded-xl border border-[#ddd1c2] bg-white px-3 py-2" />
+              <label class="text-sm font-semibold md:col-span-2">Número de tarjeta
+                <input type="number" required placeholder="4242 4242 4242 4242" class="mt-1 w-full rounded-xl border border-[#ddd1c2] bg-white px-3 py-2" />
               </label>
-              <label class="text-sm font-semibold">Vencimiento
-                <input type="text" required placeholder="MM/AA" class="mt-1 w-full rounded-xl border border-[#ddd1c2] bg-white px-3 py-2" />
-              </label>
+                <label class="text-sm font-semibold">Vencimiento
+                  <input id="input-vencimiento" type="month" required class="w-full rounded-xl border border-[#ddd1c2] bg-white px-3 py-2" />
+                </label>
               <label class="text-sm font-semibold">CVV
                 <input type="password" required placeholder="123" class="mt-1 w-full rounded-xl border border-[#ddd1c2] bg-white px-3 py-2" />
               </label>
@@ -121,14 +138,31 @@
           </section>
         </form>
 
+        <!-- =============================== -->
+        <!-- Modal de resumen de compra -->
+        <!-- =============================== -->
         <div class="mt-8 flex flex-wrap gap-3">
+          <div id="modal-resumen" class="fixed inset-0 z-50 hidden items-center justify-center bg-black/40">
+            <div class="bg-white rounded-2xl shadow-xl max-w-lg w-full p-6 relative">
+              <button id="cerrar-modal-resumen" class="absolute top-3 right-3 text-xl font-bold text-[#246a73]">&times;</button>
+              <h3 class="text-2xl font-extrabold mb-4 text-[#152235]">Resumen de tu compra</h3>
+              <div id="resumen-productos" class="mb-4"></div>
+              <div id="resumen-factura" class="mb-4"></div>
+              <button id="confirmar-compra" class="w-full rounded-full bg-[#246a73] border-2 border-[#174a3a] px-5 py-2 text-sm font-bold text-white mt-2 shadow-sm hover:bg-[#174a3a] transition-colors">Confirmar compra</button>
+            </div>
+          </div>
+
+          <!-- Botones de navegación de pasos -->
           <button data-prev type="button" class="rounded-full border border-[#d8cec1] bg-white px-5 py-2 text-sm font-bold text-[#152235] disabled:cursor-not-allowed disabled:opacity-45">Anterior</button>
           <button data-next type="button" class="rounded-full bg-[#152235] px-5 py-2 text-sm font-bold text-white">Siguiente</button>
-          <button data-finish type="button" idclass="hidden rounded-full bg-[#246a73] px-5 py-2 text-sm font-bold text-white">Finalizar pago</button>
+          <button data-finish type="button" class="hidden rounded-full bg-[#246a73] border-2 border-[#174a3a] px-5 py-2 text-sm font-bold text-white shadow-sm hover:bg-[#174a3a] transition-colors">Finalizar pago</button>
         </div>
       </section>
     </main>
 
+    <!-- =============================== -->
+    <!-- Footer global -->
+    <!-- =============================== -->
     <footer class="mt-14 border-t border-[#ded4c7] bg-[#fffaf3]">
       <div class="site-shell grid gap-8 py-10 md:grid-cols-4">
         <section>

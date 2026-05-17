@@ -11,9 +11,29 @@
 }
 
 * {
+  /* ===============================
+     Variables globales de color y fuente
+     =============================== */
+  :root {
+    --brand-ink: #152235;
+    --brand-sand: #f4efe8;
+    --brand-clay: #c76033;
+    --brand-sea: #246a73;
+    --brand-warm: #ffe7d1;
+    --surface: #fffdf9;
+    --text-main: #1e1f22;
+    --text-soft: #666b73;
+    --border-soft: #e4ddd4;
+  }
   box-sizing: border-box;
 }
 
+  /* ===============================
+     Reset y estilos generales
+     =============================== */
+  * {
+    box-sizing: border-box;
+  }
 html,
 body {
   margin: 0;
@@ -25,6 +45,12 @@ body {
   color: var(--text-main);
   font-family: "Manrope", "Segoe UI", sans-serif;
 }
+  /* ===============================
+     Estilos de la estructura
+     =============================== */
+  body {
+    min-height: 100vh;
+  }
 
 body {
   min-height: 100vh;
@@ -39,22 +65,48 @@ h4,
 }
 
 p {
+  /* ===============================
+     Layout general
+     =============================== */
+  .site-shell {
+    width: min(1280px, 92vw);
+    margin: 0 auto;
+  }
   color: var(--text-soft);
 }
 
 .site-shell {
   width: min(1280px, 92vw);
   margin: 0 auto;
+  /* Panel translúcido para formularios y checkout */
+  .glass-panel {
+    background: rgba(255, 253, 249, 0.84);
+    backdrop-filter: blur(8px);
+    border: 1px solid rgba(228, 221, 212, 0.85);
+    box-shadow: 0 15px 35px rgba(21, 34, 53, 0.08);
+  }
 }
 
 .glass-panel {
   background: rgba(255, 253, 249, 0.84);
   backdrop-filter: blur(8px);
+  /* Banner principal de la home */
+  .hero-pattern {
+    background:
+      linear-gradient(120deg, rgba(21, 34, 53, 0.96), rgba(36, 106, 115, 0.88)),
+      url("https://images.unsplash.com/photo-1460353581641-37baddab0fa2?auto=format&fit=crop&w=1800&q=80") center/cover;
+  }
   border: 1px solid rgba(228, 221, 212, 0.85);
   box-shadow: 0 15px 35px rgba(21, 34, 53, 0.08);
 }
 
 .hero-pattern {
+  /* Animaciones de aparición */
+  .reveal {
+    opacity: 0;
+    transform: translateY(15px);
+    animation: fade-slide 0.7s ease forwards;
+  }
   background:
     linear-gradient(120deg, rgba(21, 34, 53, 0.96), rgba(36, 106, 115, 0.88)),
     url("https://images.unsplash.com/photo-1460353581641-37baddab0fa2?auto=format&fit=crop&w=1800&q=80") center/cover;
@@ -68,6 +120,16 @@ p {
 
 .reveal-delay-1 {
   animation-delay: 0.12s;
+  /* ===============================
+     Catálogo: tarjetas de producto
+     =============================== */
+  .product-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 18px 30px rgba(21, 34, 53, 0.12);
+  }
+  .product-card {
+    transition: transform 0.24s ease, box-shadow 0.24s ease;
+  }
 }
 
 .reveal-delay-2 {
@@ -93,11 +155,45 @@ p {
 .product-card {
   transition: transform 0.24s ease, box-shadow 0.24s ease;
 }
+  /* ===============================
+     Checkout: pasos y estados visuales
+     =============================== */
+  .step-dot {
+    width: 2.2rem;
+    height: 2.2rem;
+    border-radius: 999px;
+    border: 1px solid var(--border-soft);
+    display: grid;
+    place-items: center;
+    font-weight: 700;
+    color: var(--text-soft);
+    background: #ffffff;
+  }
+  .step-dot.active {
+    border-color: var(--brand-sea);
+    color: white;
+    background: linear-gradient(135deg, #246a73, #2c8b97);
+  }
+  .step-dot.done {
+    border-color: #8fb9a0;
+    color: #2f7d4c;
+    background: linear-gradient(135deg, #eaf6ee, #deefe5);
+  }
+  .step-dot-check {
+    font-size: 1.05rem;
+    line-height: 1;
+  }
 
 .step-dot {
   width: 2.2rem;
   height: 2.2rem;
   border-radius: 999px;
+  /* Etiqueta cálida para promociones */
+  .badge-warm {
+    background: var(--brand-warm);
+    color: #8c3c1e;
+    border: 1px solid #efc39f;
+  }
   border: 1px solid var(--border-soft);
   display: grid;
   place-items: center;
@@ -105,17 +201,40 @@ p {
   color: var(--text-soft);
   background: #ffffff;
 }
+  /* ===============================
+     Formularios: enfoque
+     =============================== */
+  input:focus,
+  select:focus,
+  textarea:focus,
+  button:focus-visible {
+    outline: 2px solid rgba(36, 106, 115, 0.45);
+    outline-offset: 1px;
+  }
 
 .step-dot.active {
   border-color: var(--brand-sea);
   color: white;
   background: linear-gradient(135deg, #246a73, #2c8b97);
+  /* ===============================
+     Responsive
+     =============================== */
+  @media (max-width: 1024px) {
+    .site-shell {
+      width: min(1280px, 94vw);
+    }
+  }
 }
 
 .step-dot.done {
-  border-color: var(--brand-clay);
-  color: white;
-  background: linear-gradient(135deg, #c76033, #d77952);
+  border-color: #8fb9a0;
+  color: #2f7d4c;
+  background: linear-gradient(135deg, #eaf6ee, #deefe5);
+}
+
+.step-dot-check {
+  font-size: 1.05rem;
+  line-height: 1;
 }
 
 .badge-warm {
