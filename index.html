@@ -20,7 +20,227 @@
       rel="stylesheet"
     />
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
-    <script src="assets/main.js" defer></script>
+    <style>
+      .hero-carousel {
+        position: relative;
+        overflow: hidden;
+        border-radius: 1.5rem;
+        min-height: 26rem;
+      }
+
+      .hero-carousel input[type="radio"] {
+        position: absolute;
+        opacity: 0;
+        pointer-events: none;
+      }
+
+      .hero-carousel__track {
+        display: flex;
+        width: 300%;
+        transition: transform 0.75s ease;
+        animation: hero-autoplay 15s infinite;
+      }
+
+      .hero-carousel__slide {
+        position: relative;
+        width: 100%;
+        min-height: 26rem;
+        flex: 0 0 33.333333%;
+      }
+
+      .hero-carousel__slide img {
+        position: absolute;
+        inset: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+
+      .hero-carousel__overlay {
+        position: absolute;
+        inset: 0;
+        background: linear-gradient(120deg, rgba(21, 34, 53, 0.9), rgba(30, 31, 34, 0.78), rgba(199, 96, 51, 0.45));
+      }
+
+      .hero-carousel__overlay--inverse {
+        background: linear-gradient(120deg, rgba(199, 96, 51, 0.22), rgba(30, 31, 34, 0.58), rgba(21, 34, 53, 0.9));
+      }
+
+      .hero-carousel__content {
+        position: relative;
+        z-index: 2;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        padding-top: 2rem;
+        padding-bottom: 2rem;
+        padding-left: 4.8rem;
+        padding-right: 2rem;
+        color: #fffdf9;
+      }
+
+      .hero-carousel__content--right {
+        align-items: flex-end;
+        text-align: right;
+        padding-left: 2rem;
+        padding-right: 4.8rem;
+      }
+
+      .hero-carousel__content--right h1,
+      .hero-carousel__content--right h2,
+      .hero-carousel__content--right p {
+        margin-left: auto;
+      }
+
+      .hero-carousel__content--right .hero-carousel__actions {
+        justify-content: flex-end;
+      }
+
+      .hero-carousel__dots {
+        position: absolute;
+        left: 50%;
+        bottom: 1.25rem;
+        z-index: 3;
+        display: flex;
+        gap: 0.55rem;
+        transform: translateX(-50%);
+      }
+
+      .hero-carousel__dots label {
+        width: 0.8rem;
+        height: 0.8rem;
+        border-radius: 999px;
+        background: rgba(255, 253, 249, 0.45);
+        border: 1px solid rgba(255, 253, 249, 0.8);
+        cursor: pointer;
+        transition: transform 0.2s ease, background 0.2s ease;
+      }
+
+      #hero-slide-1:checked ~ .hero-carousel__track {
+        animation: none;
+        transform: translateX(0);
+      }
+
+      #hero-slide-2:checked ~ .hero-carousel__track {
+        animation: none;
+        transform: translateX(-33.333333%);
+      }
+
+      #hero-slide-3:checked ~ .hero-carousel__track {
+        animation: none;
+        transform: translateX(-66.666666%);
+      }
+
+      #hero-slide-1:checked ~ .hero-carousel__dots label[for="hero-slide-1"],
+      #hero-slide-2:checked ~ .hero-carousel__dots label[for="hero-slide-2"],
+      #hero-slide-3:checked ~ .hero-carousel__dots label[for="hero-slide-3"] {
+        background: #fffdf9;
+        transform: scale(1.15);
+      }
+
+      .hero-carousel:hover .hero-carousel__track,
+      .hero-carousel:focus-within .hero-carousel__track {
+        animation-play-state: paused;
+      }
+
+      .hero-carousel__arrow {
+        position: absolute;
+        top: 50%;
+        z-index: 3;
+        width: 2.5rem;
+        height: 2.5rem;
+        margin-top: -1.25rem;
+        display: none;
+        border-radius: 999px;
+        border: 1px solid rgba(255, 253, 249, 0.9);
+        background: rgba(21, 34, 53, 0.38);
+        color: #fffdf9;
+        cursor: pointer;
+        font-size: 1.5rem;
+        line-height: 2.3rem;
+        text-align: center;
+        user-select: none;
+        transition: background 0.2s ease, transform 0.2s ease;
+      }
+
+      .hero-carousel__arrow:hover {
+        background: rgba(21, 34, 53, 0.65);
+        transform: scale(1.05);
+      }
+
+      .hero-carousel__arrow--prev {
+        left: 1rem;
+      }
+
+      .hero-carousel__arrow--next {
+        right: 1rem;
+      }
+
+      .hero-carousel__arrow-set--auto,
+      #hero-slide-1:checked ~ .hero-carousel__arrow-set--slide-1,
+      #hero-slide-2:checked ~ .hero-carousel__arrow-set--slide-2,
+      #hero-slide-3:checked ~ .hero-carousel__arrow-set--slide-3 {
+        display: block;
+      }
+
+      #hero-slide-1:checked ~ .hero-carousel__arrow-set--auto,
+      #hero-slide-2:checked ~ .hero-carousel__arrow-set--auto,
+      #hero-slide-3:checked ~ .hero-carousel__arrow-set--auto {
+        display: none;
+      }
+
+      @keyframes hero-autoplay {
+        0%,
+        28% {
+          transform: translateX(0);
+        }
+        33%,
+        61% {
+          transform: translateX(-33.333333%);
+        }
+        66%,
+        94% {
+          transform: translateX(-66.666666%);
+        }
+        100% {
+          transform: translateX(0);
+        }
+      }
+
+      @media (prefers-reduced-motion: reduce) {
+        .hero-carousel__track {
+          animation: none;
+        }
+      }
+
+      @media (max-width: 640px) {
+        .hero-carousel,
+        .hero-carousel__slide {
+          min-height: 22rem;
+        }
+
+        .hero-carousel__content {
+          padding-top: 1.5rem;
+          padding-bottom: 1.5rem;
+          padding-left: 3.4rem;
+          padding-right: 1.5rem;
+        }
+
+        .hero-carousel__content--right {
+          padding-left: 1.5rem;
+          padding-right: 3.4rem;
+        }
+
+        .hero-carousel__arrow {
+          width: 2.1rem;
+          height: 2.1rem;
+          margin-top: -1.05rem;
+          font-size: 1.3rem;
+          line-height: 1.95rem;
+        }
+      }
+    </style>
   </head>
   <body class="bg-[#fffdf9] text-[#1e1f22] antialiased [font-family:'Manrope',sans-serif]">
     <header class="sticky top-0 z-30 border-b border-[#e4ddd4] bg-[#fffdf9]/95 backdrop-blur">
@@ -51,14 +271,72 @@
 
     <main>
       <section class="mx-auto mt-6 max-w-7xl px-4 sm:px-6 lg:px-10">
-        <article class="overflow-hidden rounded-3xl bg-cover bg-center [background-image:linear-gradient(120deg,rgba(21,34,53,0.92),rgba(30,31,34,0.82),rgba(199,96,51,0.56)),url('assets/img/hero.png')] p-8 text-[#fffdf9] md:p-14">
-          <p class="mb-4 inline-flex rounded-full border border-[#fffdf9]/40 bg-[#fffdf9]/15 px-3 py-1 text-xs uppercase tracking-[0.2em]">Colección primavera verano</p>
-          <h1 class="max-w-2xl [font-family:'Playfair_Display',serif] text-4xl font-black leading-tight md:text-6xl">Estilo francés contemporáneo para tu día a día</h1>
-          <p class="mt-4 max-w-xl text-sm text-[#fffdf9]/85 md:text-base">Descubre piezas premium con líneas limpias, materiales ligeros y una identidad moderna para ciudad y escapadas de fin de semana.</p>
-          <div class="mt-8 flex flex-wrap gap-3">
-            <a href="catalogo.html" class="rounded-full bg-white px-5 py-3 text-sm font-extrabold text-[#152235]">Ver catálogo</a>
-            <a href="producto.html" class="rounded-full border border-[#fffdf9]/70 px-5 py-3 text-sm font-bold">Explorar producto destacado</a>
+        <article class="hero-carousel">
+          <input type="radio" name="hero-slide" id="hero-slide-1" aria-label="Slide 1" />
+          <input type="radio" name="hero-slide" id="hero-slide-2" aria-label="Slide 2" />
+          <input type="radio" name="hero-slide" id="hero-slide-3" aria-label="Slide 3" />
+
+          <div class="hero-carousel__track">
+            <section class="hero-carousel__slide" aria-label="Colección 1">
+              <img src="assets/img/Gemini_Generated_Image_2tlp2h2tlp2h2tlp.png" alt="Colección Maison Riviera en tonos cálidos" />
+              <div class="hero-carousel__overlay"></div>
+              <div class="hero-carousel__content">
+                <p class="mb-4 inline-flex w-fit rounded-full border border-[#fffdf9]/40 bg-[#fffdf9]/15 px-3 py-1 text-xs uppercase tracking-[0.2em]">Colección primavera verano</p>
+                <h1 class="max-w-2xl [font-family:'Playfair_Display',serif] text-4xl font-black leading-tight md:text-6xl">Estilo francés contemporáneo para tu día a día</h1>
+                <p class="mt-4 max-w-xl text-sm text-[#fffdf9]/85 md:text-base">Descubre piezas premium con líneas limpias, materiales ligeros y una identidad moderna para ciudad y escapadas de fin de semana.</p>
+                <div class="hero-carousel__actions mt-8 flex flex-wrap gap-3">
+                  <a href="catalogo.html" class="rounded-full bg-white px-5 py-3 text-sm font-extrabold text-[#152235]">Ver catálogo</a>
+                  <a href="producto.html" class="rounded-full border border-[#fffdf9]/70 px-5 py-3 text-sm font-bold">Explorar producto destacado</a>
+                </div>
+              </div>
+            </section>
+
+            <section class="hero-carousel__slide" aria-label="Colección 2">
+              <img src="assets/img/Gemini_Generated_Image_7eo54s7eo54s7eo5.png" alt="Colección Maison Riviera con estilo urbano" />
+              <div class="hero-carousel__overlay hero-carousel__overlay--inverse"></div>
+              <div class="hero-carousel__content hero-carousel__content--right">
+                <p class="mb-4 inline-flex w-fit rounded-full border border-[#fffdf9]/40 bg-[#fffdf9]/15 px-3 py-1 text-xs uppercase tracking-[0.2em]">Nueva edición</p>
+                <h2 class="max-w-2xl [font-family:'Playfair_Display',serif] text-4xl font-black leading-tight md:text-6xl">Texturas ligeras, impacto elegante</h2>
+                <p class="mt-4 max-w-xl text-sm text-[#fffdf9]/85 md:text-base">Looks versátiles para oficina, paseo y fin de semana, con una paleta fresca y sofisticada.</p>
+                <div class="hero-carousel__actions mt-8 flex flex-wrap gap-3">
+                  <a href="catalogo.html" class="rounded-full bg-white px-5 py-3 text-sm font-extrabold text-[#152235]">Comprar ahora</a>
+                  <a href="producto.html" class="rounded-full border border-[#fffdf9]/70 px-5 py-3 text-sm font-bold">Ver destacados</a>
+                </div>
+              </div>
+            </section>
+
+            <section class="hero-carousel__slide" aria-label="Colección 3">
+              <img src="assets/img/Gemini_Generated_Image_bd1mmobd1mmobd1m.png" alt="Colección Maison Riviera con enfoque minimalista" />
+              <div class="hero-carousel__overlay"></div>
+              <div class="hero-carousel__content">
+                <p class="mb-4 inline-flex w-fit rounded-full border border-[#fffdf9]/40 bg-[#fffdf9]/15 px-3 py-1 text-xs uppercase tracking-[0.2em]">Diseño de temporada</p>
+                <h2 class="max-w-2xl [font-family:'Playfair_Display',serif] text-4xl font-black leading-tight md:text-6xl">Una colección hecha para destacar</h2>
+                <p class="mt-4 max-w-xl text-sm text-[#fffdf9]/85 md:text-base">Prendas pensadas para combinar personalidad, comodidad y presencia en cada detalle.</p>
+                <div class="hero-carousel__actions mt-8 flex flex-wrap gap-3">
+                  <a href="catalogo.html" class="rounded-full bg-white px-5 py-3 text-sm font-extrabold text-[#152235]">Ir a colección</a>
+                  <a href="carrito.html" class="rounded-full border border-[#fffdf9]/70 px-5 py-3 text-sm font-bold">Ver carrito</a>
+                </div>
+              </div>
+            </section>
           </div>
+
+          <div class="hero-carousel__dots" aria-label="Selector de banner">
+            <label for="hero-slide-1" aria-label="Mostrar slide 1"></label>
+            <label for="hero-slide-2" aria-label="Mostrar slide 2"></label>
+            <label for="hero-slide-3" aria-label="Mostrar slide 3"></label>
+          </div>
+
+          <label for="hero-slide-3" class="hero-carousel__arrow hero-carousel__arrow--prev hero-carousel__arrow-set--auto" aria-label="Banner anterior"><</label>
+          <label for="hero-slide-1" class="hero-carousel__arrow hero-carousel__arrow--next hero-carousel__arrow-set--auto" aria-label="Siguiente banner">></label>
+
+          <label for="hero-slide-3" class="hero-carousel__arrow hero-carousel__arrow--prev hero-carousel__arrow-set--slide-1" aria-label="Banner anterior"><</label>
+          <label for="hero-slide-2" class="hero-carousel__arrow hero-carousel__arrow--next hero-carousel__arrow-set--slide-1" aria-label="Siguiente banner">></label>
+
+          <label for="hero-slide-1" class="hero-carousel__arrow hero-carousel__arrow--prev hero-carousel__arrow-set--slide-2" aria-label="Banner anterior"><</label>
+          <label for="hero-slide-3" class="hero-carousel__arrow hero-carousel__arrow--next hero-carousel__arrow-set--slide-2" aria-label="Siguiente banner">></label>
+
+          <label for="hero-slide-2" class="hero-carousel__arrow hero-carousel__arrow--prev hero-carousel__arrow-set--slide-3" aria-label="Banner anterior"><</label>
+          <label for="hero-slide-1" class="hero-carousel__arrow hero-carousel__arrow--next hero-carousel__arrow-set--slide-3" aria-label="Siguiente banner">></label>
         </article>
       </section>
 
