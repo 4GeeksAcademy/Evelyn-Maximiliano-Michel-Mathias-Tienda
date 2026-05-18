@@ -70,27 +70,6 @@
               "availability": "https://schema.org/InStock",
               "itemCondition": "https://schema.org/NewCondition"
             }
-          },
-          {
-            "@type": "FAQPage",
-            "mainEntity": [
-              {
-                "@type": "Question",
-                "name": "¿Cómo elegir la talla correcta de la Chaqueta Marine Line?",
-                "acceptedAnswer": {
-                  "@type": "Answer",
-                  "text": "Revisa la guía de tallas en la ficha del producto y, si estás entre dos tallas, elige la mayor para usar capas ligeras debajo."
-                }
-              },
-              {
-                "@type": "Question",
-                "name": "¿Cuál es el plazo de envío y devoluciones?",
-                "acceptedAnswer": {
-                  "@type": "Answer",
-                  "text": "Maison Riviera gestiona envíos en 48 horas y permite devoluciones dentro de los 30 días posteriores a la compra."
-                }
-              }
-            ]
           }
         ]
       }
@@ -102,6 +81,23 @@
       rel="stylesheet"
     />
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <style>
+      .product-view {
+        display: none;
+      }
+
+      .product-view--default {
+        display: block;
+      }
+
+      .product-view:target {
+        display: block;
+      }
+
+      .product-view:target ~ .product-view--default {
+        display: none;
+      }
+    </style>
     <script src="assets/main.js" defer></script>
   </head>
   <body class="bg-[#fffdf9] text-[#1e1f22] antialiased [font-family:'Manrope',sans-serif]">
@@ -138,73 +134,125 @@
           <li aria-hidden="true">/</li>
           <li><a href="catalogo.html" class="hover:text-[#c76033]">Catálogo</a></li>
           <li aria-hidden="true">/</li>
-          <li class="font-semibold text-[#152235]" aria-current="page">Chaqueta Marine Line</li>
+          <li class="font-semibold text-[#152235]" aria-current="page">Producto</li>
         </ol>
       </nav>
 
-      <article class="grid gap-8 lg:grid-cols-2">
-        <section>
-          <img
-            src="https://images.unsplash.com/photo-1591047139829-d91aecb6caea?auto=format&fit=crop&w=1400&q=80"
-            alt="Chaqueta Marine Line azul marino"
-            fetchpriority="high"
-            class="h-[440px] w-full rounded-3xl border border-[#e4ddd4] object-cover"
-          />
-        </section>
+      <nav aria-label="Selector de tipo de producto" class="mb-6 flex flex-wrap gap-2">
+        <a href="producto.html#chaqueta-marine-line" class="rounded-full border border-[#d9cfc2] bg-[#fffdf9] px-4 py-2 text-xs font-bold uppercase tracking-[0.08em] text-[#152235] hover:bg-[#f4efe8]">Destacado</a>
+        <a href="producto.html#camisas" class="rounded-full border border-[#d9cfc2] bg-[#fffdf9] px-4 py-2 text-xs font-bold uppercase tracking-[0.08em] text-[#152235] hover:bg-[#f4efe8]">Camisas</a>
+        <a href="producto.html#pantalones" class="rounded-full border border-[#d9cfc2] bg-[#fffdf9] px-4 py-2 text-xs font-bold uppercase tracking-[0.08em] text-[#152235] hover:bg-[#f4efe8]">Pantalones</a>
+        <a href="producto.html#calzado" class="rounded-full border border-[#d9cfc2] bg-[#fffdf9] px-4 py-2 text-xs font-bold uppercase tracking-[0.08em] text-[#152235] hover:bg-[#f4efe8]">Calzado</a>
+        <a href="producto.html#accesorios" class="rounded-full border border-[#d9cfc2] bg-[#fffdf9] px-4 py-2 text-xs font-bold uppercase tracking-[0.08em] text-[#152235] hover:bg-[#f4efe8]">Accesorios</a>
+      </nav>
 
-        <section class="rounded-3xl border border-[#e4ddd4] bg-[#fffdf9] p-6 shadow-[0_15px_35px_rgba(21,34,53,0.08)] md:p-8" aria-labelledby="product-name">
-          <p class="inline-flex rounded-full border border-[#efc39f] bg-[#ffe7d1] px-3 py-1 text-xs font-bold uppercase tracking-[0.15em] text-[#8c3c1e]">Producto destacado</p>
-          <h1 id="product-name" class="mt-3 [font-family:'Playfair_Display',serif] text-4xl font-black text-[#152235]">Chaqueta Marine Line</h1>
-          <p class="mt-2 text-sm text-[#666b73]">Código: MR-JKT-2309</p>
-
-          <div class="mt-6 space-y-3 text-sm text-[#1e1f22]">
-            <p><strong>Talla:</strong> M</p>
-            <p><strong>Precio:</strong> <span class="text-xl font-extrabold text-[#152235]">EUR 190</span></p>
-          </div>
-
-          <div data-qty-wrap class="mt-6">
-            <label for="product-qty" class="mb-2 block text-sm font-bold text-[#1e1f22]">Cantidad</label>
-            <div class="flex w-fit items-center rounded-xl border border-[#e4ddd4] bg-[#fffdf9]">
-              <button data-qty-minus type="button" class="px-4 py-2 text-lg font-bold text-[#152235]">-</button>
-              <input id="product-qty" data-qty-input type="number" min="1" max="15" value="1" class="w-14 border-x border-[#e4ddd4] bg-transparent text-center text-[#1e1f22]" />
-              <button data-qty-plus type="button" class="px-4 py-2 text-lg font-bold text-[#152235]">+</button>
+      <section id="camisas" class="product-view">
+        <article class="grid gap-8 lg:grid-cols-2">
+          <section>
+            <img src="https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?auto=format&fit=crop&w=1400&q=80" alt="Camisa Riviera Blanc" class="h-[440px] w-full rounded-3xl border border-[#e4ddd4] object-cover" />
+          </section>
+          <section class="rounded-3xl border border-[#e4ddd4] bg-[#fffdf9] p-6 shadow-[0_15px_35px_rgba(21,34,53,0.08)] md:p-8">
+            <p class="inline-flex rounded-full border border-[#efc39f] bg-[#ffe7d1] px-3 py-1 text-xs font-bold uppercase tracking-[0.15em] text-[#8c3c1e]">Camisas</p>
+            <h1 class="mt-3 [font-family:'Playfair_Display',serif] text-4xl font-black text-[#152235]">Camisa Riviera Blanc</h1>
+            <p class="mt-2 text-sm text-[#666b73]">Código: MR-SH-1489</p>
+            <p class="mt-6 text-sm text-[#1e1f22]"><strong>Talla:</strong> S, M, L, XL</p>
+            <p class="mt-2 text-sm text-[#1e1f22]"><strong>Precio:</strong> <span class="text-xl font-extrabold text-[#152235]">EUR 89</span></p>
+            <div class="mt-8 flex flex-wrap gap-3">
+              <a href="carrito.html" class="rounded-full bg-[#152235] px-6 py-3 text-sm font-extrabold text-[#fffdf9] transition hover:bg-[#1e1f22]">Agregar al carrito</a>
+              <a href="checkout.html" class="rounded-full border border-[#c76033] bg-[#ffe7d1] px-6 py-3 text-sm font-bold text-[#152235] transition hover:bg-[#ffd7b9]">Comprar ahora</a>
             </div>
-          </div>
-
-          <div class="mt-8 flex flex-wrap gap-3">
-            <a href="carrito.html" class="rounded-full bg-[#152235] px-6 py-3 text-sm font-extrabold text-[#fffdf9] transition hover:bg-[#1e1f22]">Agregar al carrito</a>
-            <a href="checkout.html" class="rounded-full border border-[#c76033] bg-[#ffe7d1] px-6 py-3 text-sm font-bold text-[#152235] transition hover:bg-[#ffd7b9]">Comprar ahora</a>
-          </div>
-        </section>
-      </article>
-
-      <section class="mt-8 rounded-3xl border border-[#e4ddd4] bg-[#fffdf9] p-6 shadow-[0_15px_35px_rgba(21,34,53,0.08)]" aria-labelledby="detail-description">
-        <h2 id="detail-description" class="[font-family:'Playfair_Display',serif] text-2xl font-extrabold text-[#152235]">Descripción detallada</h2>
-        <div class="mt-4 grid gap-5 md:grid-cols-2">
-          <article>
-            <h3 class="text-lg font-bold text-[#1e1f22]">Materiales</h3>
-            <p class="mt-2 text-sm text-[#666b73]">Exterior en mezcla técnica resistente al viento, interior con forro transpirable y acabado hidrófugo para lluvia ligera. Cremallera frontal reforzada y costuras selladas en hombro.</p>
-          </article>
-
-          <article>
-            <h3 class="text-lg font-bold text-[#1e1f22]">Uso recomendado</h3>
-            <p class="mt-2 text-sm text-[#666b73]">Ideal para oficina casual, viajes urbanos y salidas de media estación. Funciona muy bien con camisa de lino, pantalón slim o denim oscuro para un look francés actual.</p>
-          </article>
-        </div>
+          </section>
+        </article>
       </section>
 
-      <section class="mt-8 rounded-3xl border border-[#e4ddd4] bg-[#fffdf9] p-6 shadow-[0_15px_35px_rgba(21,34,53,0.08)]" aria-labelledby="faq-producto">
-        <h2 id="faq-producto" class="[font-family:'Playfair_Display',serif] text-2xl font-extrabold text-[#152235]">Preguntas frecuentes</h2>
-        <div class="mt-4 space-y-4 text-sm text-[#4b4f58]">
-          <article>
-            <h3 class="text-base font-bold text-[#1e1f22]">¿Cómo elegir la talla correcta?</h3>
-            <p class="mt-1">La Chaqueta Marine Line tiene ajuste regular. Si prefieres usar una capa interior gruesa, recomendamos seleccionar una talla superior.</p>
-          </article>
-          <article>
-            <h3 class="text-base font-bold text-[#1e1f22]">¿Qué incluye la política de envíos y devoluciones?</h3>
-            <p class="mt-1">El despacho se realiza en 48 h y puedes solicitar devolución en un plazo de 30 días desde la entrega del pedido.</p>
-          </article>
-        </div>
+      <section id="pantalones" class="product-view">
+        <article class="grid gap-8 lg:grid-cols-2">
+          <section>
+            <img src="https://images.unsplash.com/photo-1614251055880-ee96e4803393?auto=format&fit=crop&w=1400&q=80" alt="Pantalón Sable Metro" class="h-[440px] w-full rounded-3xl border border-[#e4ddd4] object-cover" />
+          </section>
+          <section class="rounded-3xl border border-[#e4ddd4] bg-[#fffdf9] p-6 shadow-[0_15px_35px_rgba(21,34,53,0.08)] md:p-8">
+            <p class="inline-flex rounded-full border border-[#efc39f] bg-[#ffe7d1] px-3 py-1 text-xs font-bold uppercase tracking-[0.15em] text-[#8c3c1e]">Pantalones</p>
+            <h1 class="mt-3 [font-family:'Playfair_Display',serif] text-4xl font-black text-[#152235]">Pantalón Sable Metro</h1>
+            <p class="mt-2 text-sm text-[#666b73]">Código: MR-PN-1910</p>
+            <p class="mt-6 text-sm text-[#1e1f22]"><strong>Talla:</strong> M, L, XL</p>
+            <p class="mt-2 text-sm text-[#1e1f22]"><strong>Precio:</strong> <span class="text-xl font-extrabold text-[#152235]">EUR 110</span></p>
+            <div class="mt-8 flex flex-wrap gap-3">
+              <a href="carrito.html" class="rounded-full bg-[#152235] px-6 py-3 text-sm font-extrabold text-[#fffdf9] transition hover:bg-[#1e1f22]">Agregar al carrito</a>
+              <a href="checkout.html" class="rounded-full border border-[#c76033] bg-[#ffe7d1] px-6 py-3 text-sm font-bold text-[#152235] transition hover:bg-[#ffd7b9]">Comprar ahora</a>
+            </div>
+          </section>
+        </article>
+      </section>
+
+      <section id="calzado" class="product-view">
+        <article class="grid gap-8 lg:grid-cols-2">
+          <section>
+            <img src="https://images.unsplash.com/photo-1543508282-6319a3e2621f?auto=format&fit=crop&w=1400&q=80" alt="Sneaker Cote 74" class="h-[440px] w-full rounded-3xl border border-[#e4ddd4] object-cover" />
+          </section>
+          <section class="rounded-3xl border border-[#e4ddd4] bg-[#fffdf9] p-6 shadow-[0_15px_35px_rgba(21,34,53,0.08)] md:p-8">
+            <p class="inline-flex rounded-full border border-[#efc39f] bg-[#ffe7d1] px-3 py-1 text-xs font-bold uppercase tracking-[0.15em] text-[#8c3c1e]">Calzado</p>
+            <h1 class="mt-3 [font-family:'Playfair_Display',serif] text-4xl font-black text-[#152235]">Sneaker Cote 74</h1>
+            <p class="mt-2 text-sm text-[#666b73]">Código: MR-SN-2274</p>
+            <p class="mt-6 text-sm text-[#1e1f22]"><strong>Talla:</strong> 40, 42</p>
+            <p class="mt-2 text-sm text-[#1e1f22]"><strong>Precio:</strong> <span class="text-xl font-extrabold text-[#152235]">EUR 145</span></p>
+            <div class="mt-8 flex flex-wrap gap-3">
+              <a href="carrito.html" class="rounded-full bg-[#152235] px-6 py-3 text-sm font-extrabold text-[#fffdf9] transition hover:bg-[#1e1f22]">Agregar al carrito</a>
+              <a href="checkout.html" class="rounded-full border border-[#c76033] bg-[#ffe7d1] px-6 py-3 text-sm font-bold text-[#152235] transition hover:bg-[#ffd7b9]">Comprar ahora</a>
+            </div>
+          </section>
+        </article>
+      </section>
+
+      <section id="accesorios" class="product-view">
+        <article class="grid gap-8 lg:grid-cols-2">
+          <section>
+            <img src="https://images.unsplash.com/photo-1548036328-c9fa89d128fa?auto=format&fit=crop&w=1400&q=80" alt="Bolso Atelier Terre" class="h-[440px] w-full rounded-3xl border border-[#e4ddd4] object-cover" />
+          </section>
+          <section class="rounded-3xl border border-[#e4ddd4] bg-[#fffdf9] p-6 shadow-[0_15px_35px_rgba(21,34,53,0.08)] md:p-8">
+            <p class="inline-flex rounded-full border border-[#efc39f] bg-[#ffe7d1] px-3 py-1 text-xs font-bold uppercase tracking-[0.15em] text-[#8c3c1e]">Accesorios</p>
+            <h1 class="mt-3 [font-family:'Playfair_Display',serif] text-4xl font-black text-[#152235]">Bolso Atelier Terre</h1>
+            <p class="mt-2 text-sm text-[#666b73]">Código: MR-AC-4170</p>
+            <p class="mt-6 text-sm text-[#1e1f22]"><strong>Talla:</strong> Única</p>
+            <p class="mt-2 text-sm text-[#1e1f22]"><strong>Precio:</strong> <span class="text-xl font-extrabold text-[#152235]">EUR 170</span></p>
+            <div class="mt-8 flex flex-wrap gap-3">
+              <a href="carrito.html" class="rounded-full bg-[#152235] px-6 py-3 text-sm font-extrabold text-[#fffdf9] transition hover:bg-[#1e1f22]">Agregar al carrito</a>
+              <a href="checkout.html" class="rounded-full border border-[#c76033] bg-[#ffe7d1] px-6 py-3 text-sm font-bold text-[#152235] transition hover:bg-[#ffd7b9]">Comprar ahora</a>
+            </div>
+          </section>
+        </article>
+      </section>
+
+      <section id="chaqueta-marine-line" class="product-view product-view--default">
+        <article class="grid gap-8 lg:grid-cols-2">
+          <section>
+            <img src="https://images.unsplash.com/photo-1591047139829-d91aecb6caea?auto=format&fit=crop&w=1400&q=80" alt="Chaqueta Marine Line azul marino" fetchpriority="high" class="h-[440px] w-full rounded-3xl border border-[#e4ddd4] object-cover" />
+          </section>
+          <section class="rounded-3xl border border-[#e4ddd4] bg-[#fffdf9] p-6 shadow-[0_15px_35px_rgba(21,34,53,0.08)] md:p-8">
+            <p class="inline-flex rounded-full border border-[#efc39f] bg-[#ffe7d1] px-3 py-1 text-xs font-bold uppercase tracking-[0.15em] text-[#8c3c1e]">Producto destacado</p>
+            <h1 class="mt-3 [font-family:'Playfair_Display',serif] text-4xl font-black text-[#152235]">Chaqueta Marine Line</h1>
+            <p class="mt-2 text-sm text-[#666b73]">Código: MR-JKT-2309</p>
+            <p class="mt-6 text-sm text-[#1e1f22]"><strong>Talla:</strong> M</p>
+            <p class="mt-2 text-sm text-[#1e1f22]"><strong>Precio:</strong> <span class="text-xl font-extrabold text-[#152235]">EUR 190</span></p>
+            <div class="mt-8 flex flex-wrap gap-3">
+              <a href="carrito.html" class="rounded-full bg-[#152235] px-6 py-3 text-sm font-extrabold text-[#fffdf9] transition hover:bg-[#1e1f22]">Agregar al carrito</a>
+              <a href="checkout.html" class="rounded-full border border-[#c76033] bg-[#ffe7d1] px-6 py-3 text-sm font-bold text-[#152235] transition hover:bg-[#ffd7b9]">Comprar ahora</a>
+            </div>
+          </section>
+        </article>
+
+        <section class="mt-8 rounded-3xl border border-[#e4ddd4] bg-[#fffdf9] p-6 shadow-[0_15px_35px_rgba(21,34,53,0.08)]" aria-labelledby="detail-description">
+          <h2 id="detail-description" class="[font-family:'Playfair_Display',serif] text-2xl font-extrabold text-[#152235]">Descripción detallada</h2>
+          <div class="mt-4 grid gap-5 md:grid-cols-2">
+            <article>
+              <h3 class="text-lg font-bold text-[#1e1f22]">Materiales</h3>
+              <p class="mt-2 text-sm text-[#666b73]">Exterior en mezcla técnica resistente al viento, interior con forro transpirable y acabado hidrófugo para lluvia ligera. Cremallera frontal reforzada y costuras selladas en hombro.</p>
+            </article>
+            <article>
+              <h3 class="text-lg font-bold text-[#1e1f22]">Uso recomendado</h3>
+              <p class="mt-2 text-sm text-[#666b73]">Ideal para oficina casual, viajes urbanos y salidas de media estación. Funciona muy bien con camisa de lino, pantalón slim o denim oscuro para un look francés actual.</p>
+            </article>
+          </div>
+        </section>
       </section>
     </main>
 
