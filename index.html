@@ -3,16 +3,80 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
+    <meta name="googlebot" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
     <meta
       name="description"
-      content="Maison Riviera: prototipo de tienda online de moda francesa con catálogo, carrito y checkout responsive."
+      content="Maison Riviera: tienda online de moda francesa con nuevas colecciones, productos destacados, envío rápido y compra segura."
     />
+    <link rel="canonical" href="https://maisonriviera.fr/index.html" />
+    <link rel="alternate" hreflang="es" href="https://maisonriviera.fr/index.html" />
+    <link rel="alternate" hreflang="x-default" href="https://maisonriviera.fr/index.html" />
     <meta
       name="keywords"
       content="tienda online, moda francesa, catálogo de ropa, ecommerce, maison riviera"
     />
     <meta name="author" content="Equipo de desarrollo consultora" />
-    <title>Maison Riviera | Home</title>
+    <meta name="theme-color" content="#152235" />
+    <meta property="og:locale" content="es_ES" />
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="Maison Riviera" />
+    <meta property="og:title" content="Maison Riviera | Moda Francesa Online" />
+    <meta property="og:description" content="Descubre colecciones de temporada, prendas premium y compra online segura en Maison Riviera." />
+    <meta property="og:url" content="https://maisonriviera.fr/index.html" />
+    <meta property="og:image" content="https://maisonriviera.fr/assets/img/banner-coleccion-primavera.png" />
+    <meta property="og:image:alt" content="Colección de temporada Maison Riviera" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Maison Riviera | Moda Francesa Online" />
+    <meta name="twitter:description" content="Colecciones de temporada, diseño francés y experiencia de compra premium." />
+    <meta name="twitter:image" content="https://maisonriviera.fr/assets/img/banner-coleccion-primavera.png" />
+    <title>Maison Riviera | Moda Francesa Online y Novedades</title>
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@graph": [
+          {
+            "@type": "Organization",
+            "@id": "https://maisonriviera.fr/#organization",
+            "name": "Maison Riviera",
+            "url": "https://maisonriviera.fr/",
+            "logo": "https://maisonriviera.fr/assets/img/banner-coleccion-primavera.png",
+            "description": "Marca de moda francesa enfocada en diseño contemporáneo, comodidad y elegancia funcional.",
+            "email": "hello@maisonriviera.fr",
+            "telephone": "+33 1 84 00 22 18",
+            "address": {
+              "@type": "PostalAddress",
+              "addressLocality": "Paris",
+              "addressCountry": "FR"
+            }
+          },
+          {
+            "@type": "WebSite",
+            "@id": "https://maisonriviera.fr/#website",
+            "url": "https://maisonriviera.fr/",
+            "name": "Maison Riviera",
+            "inLanguage": "es",
+            "publisher": {
+              "@id": "https://maisonriviera.fr/#organization"
+            }
+          },
+          {
+            "@type": "CollectionPage",
+            "@id": "https://maisonriviera.fr/index.html#webpage",
+            "url": "https://maisonriviera.fr/index.html",
+            "name": "Maison Riviera | Moda Francesa Online y Novedades",
+            "description": "Página principal con lanzamientos y productos más vendidos de Maison Riviera.",
+            "isPartOf": {
+              "@id": "https://maisonriviera.fr/#website"
+            },
+            "about": {
+              "@id": "https://maisonriviera.fr/#organization"
+            },
+            "inLanguage": "es"
+          }
+        ]
+      }
+    </script>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -278,7 +342,7 @@
 
           <div class="hero-carousel__track">
             <section class="hero-carousel__slide" aria-label="Colección 1">
-              <img src="assets/img/banner-coleccion-primavera.png" alt="Colección Maison Riviera en tonos cálidos" />
+              <img src="assets/img/banner-coleccion-primavera.png" alt="Colección Maison Riviera en tonos cálidos" fetchpriority="high" />
               <div class="hero-carousel__overlay"></div>
               <div class="hero-carousel__content">
                 <p class="mb-4 inline-flex w-fit rounded-full border border-[#fffdf9]/40 bg-[#fffdf9]/15 px-3 py-1 text-xs uppercase tracking-[0.2em]">Colección primavera verano</p>
@@ -292,7 +356,7 @@
             </section>
 
             <section class="hero-carousel__slide" aria-label="Colección 2">
-              <img src="assets/img/banner-estilo-urbano.png" alt="Colección Maison Riviera con estilo urbano" />
+              <img src="assets/img/banner-estilo-urbano.png" alt="Colección Maison Riviera con estilo urbano" loading="lazy" decoding="async" />
               <div class="hero-carousel__overlay hero-carousel__overlay--inverse"></div>
               <div class="hero-carousel__content hero-carousel__content--right">
                 <p class="mb-4 inline-flex w-fit rounded-full border border-[#fffdf9]/40 bg-[#fffdf9]/15 px-3 py-1 text-xs uppercase tracking-[0.2em]">Nueva edición</p>
@@ -306,7 +370,7 @@
             </section>
 
             <section class="hero-carousel__slide" aria-label="Colección 3">
-              <img src="assets/img/banner-enfoque-minimalista.png" alt="Colección Maison Riviera con enfoque minimalista" />
+              <img src="assets/img/banner-enfoque-minimalista.png" alt="Colección Maison Riviera con enfoque minimalista" loading="lazy" decoding="async" />
               <div class="hero-carousel__overlay"></div>
               <div class="hero-carousel__content">
                 <p class="mb-4 inline-flex w-fit rounded-full border border-[#fffdf9]/40 bg-[#fffdf9]/15 px-3 py-1 text-xs uppercase tracking-[0.2em]">Diseño de temporada</p>
@@ -348,28 +412,28 @@
 
         <div class="flex gap-4 overflow-x-auto pb-4">
           <article class="min-w-[250px] rounded-2xl border border-[#e4ddd4] bg-[#fffdf9] p-4 transition duration-300 hover:-translate-y-1 hover:shadow-[0_18px_30px_rgba(21,34,53,0.12)]">
-            <img src="https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?auto=format&fit=crop&w=900&q=80" alt="Camisa blanca premium Riviera" class="h-48 w-full rounded-xl object-cover" />
+            <img src="https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?auto=format&fit=crop&w=900&q=80" alt="Camisa blanca premium Riviera" loading="lazy" decoding="async" class="h-48 w-full rounded-xl object-cover" />
             <h3 class="mt-3 text-lg font-bold text-[#1e1f22]">Camisa Riviera Blanc</h3>
             <p class="text-sm text-[#666b73]">Algodón orgánico, corte regular.</p>
             <p class="mt-2 font-extrabold text-[#152235]">EUR 89</p>
           </article>
 
           <article class="min-w-[250px] rounded-2xl border border-[#e4ddd4] bg-[#fffdf9] p-4 transition duration-300 hover:-translate-y-1 hover:shadow-[0_18px_30px_rgba(21,34,53,0.12)]">
-            <img src="https://images.unsplash.com/photo-1614251055880-ee96e4803393?auto=format&fit=crop&w=900&q=80" alt="Pantalon beige urbano" class="h-48 w-full rounded-xl object-cover" />
+            <img src="https://images.unsplash.com/photo-1614251055880-ee96e4803393?auto=format&fit=crop&w=900&q=80" alt="Pantalon beige urbano" loading="lazy" decoding="async" class="h-48 w-full rounded-xl object-cover" />
             <h3 class="mt-3 text-lg font-bold text-[#1e1f22]">Pantalón Sable Metro</h3>
             <p class="text-sm text-[#666b73]">Lino flexible para uso diario.</p>
             <p class="mt-2 font-extrabold text-[#152235]">EUR 110</p>
           </article>
 
           <article class="min-w-[250px] rounded-2xl border border-[#e4ddd4] bg-[#fffdf9] p-4 transition duration-300 hover:-translate-y-1 hover:shadow-[0_18px_30px_rgba(21,34,53,0.12)]">
-            <img src="https://images.unsplash.com/photo-1543508282-6319a3e2621f?auto=format&fit=crop&w=900&q=80" alt="Sneaker cuero blanco" class="h-48 w-full rounded-xl object-cover" />
+            <img src="https://images.unsplash.com/photo-1543508282-6319a3e2621f?auto=format&fit=crop&w=900&q=80" alt="Sneaker cuero blanco" loading="lazy" decoding="async" class="h-48 w-full rounded-xl object-cover" />
             <h3 class="mt-3 text-lg font-bold text-[#1e1f22]">Sneaker Cote 74</h3>
             <p class="text-sm text-[#666b73]">Cuero natural con suela ligera.</p>
             <p class="mt-2 font-extrabold text-[#152235]">EUR 145</p>
           </article>
 
           <article class="min-w-[250px] rounded-2xl border border-[#e4ddd4] bg-[#fffdf9] p-4 transition duration-300 hover:-translate-y-1 hover:shadow-[0_18px_30px_rgba(21,34,53,0.12)]">
-            <img src="https://images.unsplash.com/photo-1548036328-c9fa89d128fa?auto=format&fit=crop&w=900&q=80" alt="Bolso marron elegante" class="h-48 w-full rounded-xl object-cover" />
+            <img src="https://images.unsplash.com/photo-1548036328-c9fa89d128fa?auto=format&fit=crop&w=900&q=80" alt="Bolso marron elegante" loading="lazy" decoding="async" class="h-48 w-full rounded-xl object-cover" />
             <h3 class="mt-3 text-lg font-bold text-[#1e1f22]">Bolso Atelier Terre</h3>
             <p class="text-sm text-[#666b73]">Piel suave con bolsillo interno.</p>
             <p class="mt-2 font-extrabold text-[#152235]">EUR 170</p>
@@ -385,31 +449,45 @@
 
         <div class="flex gap-4 overflow-x-auto pb-8">
           <article class="min-w-[250px] rounded-2xl border border-[#e4ddd4] bg-[#fffdf9] p-4 transition duration-300 hover:-translate-y-1 hover:shadow-[0_18px_30px_rgba(21,34,53,0.12)]">
-            <img src="https://images.unsplash.com/photo-1591047139829-d91aecb6caea?auto=format&fit=crop&w=900&q=80" alt="Chaqueta azul marino" class="h-48 w-full rounded-xl object-cover" />
+            <img src="https://images.unsplash.com/photo-1591047139829-d91aecb6caea?auto=format&fit=crop&w=900&q=80" alt="Chaqueta azul marino" loading="lazy" decoding="async" class="h-48 w-full rounded-xl object-cover" />
             <h3 class="mt-3 text-lg font-bold text-[#1e1f22]">Chaqueta Marine Line</h3>
             <p class="text-sm text-[#666b73]">Resistente al viento y lluvia ligera.</p>
             <p class="mt-2 font-extrabold text-[#152235]">EUR 190</p>
           </article>
 
           <article class="min-w-[250px] rounded-2xl border border-[#e4ddd4] bg-[#fffdf9] p-4 transition duration-300 hover:-translate-y-1 hover:shadow-[0_18px_30px_rgba(21,34,53,0.12)]">
-            <img src="https://images.unsplash.com/photo-1596755094514-f87e34085b2c?auto=format&fit=crop&w=900&q=80" alt="Camisa rayas azul" class="h-48 w-full rounded-xl object-cover" />
+            <img src="https://images.unsplash.com/photo-1596755094514-f87e34085b2c?auto=format&fit=crop&w=900&q=80" alt="Camisa rayas azul" loading="lazy" decoding="async" class="h-48 w-full rounded-xl object-cover" />
             <h3 class="mt-3 text-lg font-bold text-[#1e1f22]">Camisa Azure Stripe</h3>
             <p class="text-sm text-[#666b73]">Popelin suave para oficina y ocio.</p>
             <p class="mt-2 font-extrabold text-[#152235]">EUR 95</p>
           </article>
 
           <article class="min-w-[250px] rounded-2xl border border-[#e4ddd4] bg-[#fffdf9] p-4 transition duration-300 hover:-translate-y-1 hover:shadow-[0_18px_30px_rgba(21,34,53,0.12)]">
-            <img src="https://images.unsplash.com/photo-1624378439575-d8705ad7ae80?auto=format&fit=crop&w=900&q=80" alt="Pantalon negro formal" class="h-48 w-full rounded-xl object-cover" />
+            <img src="https://images.unsplash.com/photo-1624378439575-d8705ad7ae80?auto=format&fit=crop&w=900&q=80" alt="Pantalon negro formal" loading="lazy" decoding="async" class="h-48 w-full rounded-xl object-cover" />
             <h3 class="mt-3 text-lg font-bold text-[#1e1f22]">Pantalón Noir Frame</h3>
             <p class="text-sm text-[#666b73]">Silueta slim con tejido elástico.</p>
             <p class="mt-2 font-extrabold text-[#152235]">EUR 120</p>
           </article>
 
           <article class="min-w-[250px] rounded-2xl border border-[#e4ddd4] bg-[#fffdf9] p-4 transition duration-300 hover:-translate-y-1 hover:shadow-[0_18px_30px_rgba(21,34,53,0.12)]">
-            <img src="https://images.unsplash.com/photo-1516826957135-700dedea698c?auto=format&fit=crop&w=900&q=80" alt="Cinturon marron" class="h-48 w-full rounded-xl object-cover" />
+            <img src="https://images.unsplash.com/photo-1516826957135-700dedea698c?auto=format&fit=crop&w=900&q=80" alt="Cinturon marron" loading="lazy" decoding="async" class="h-48 w-full rounded-xl object-cover" />
             <h3 class="mt-3 text-lg font-bold text-[#1e1f22]">Cinturón Classic Oak</h3>
             <p class="text-sm text-[#666b73]">Acabado artesanal y hebilla metálica.</p>
             <p class="mt-2 font-extrabold text-[#152235]">EUR 58</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="mx-auto mt-2 max-w-7xl px-4 pb-8 sm:px-6 lg:px-10" aria-labelledby="seo-faq-home">
+        <h2 id="seo-faq-home" class="[font-family:'Playfair_Display',serif] text-2xl font-extrabold text-[#152235]">Preguntas frecuentes</h2>
+        <div class="mt-4 space-y-4 text-sm text-[#4b4f58]">
+          <article>
+            <h3 class="text-base font-bold text-[#1e1f22]">¿Qué tipo de productos ofrece Maison Riviera?</h3>
+            <p class="mt-1">Maison Riviera ofrece prendas y accesorios de moda francesa contemporánea, con foco en materiales premium, comodidad y diseño urbano elegante.</p>
+          </article>
+          <article>
+            <h3 class="text-base font-bold text-[#1e1f22]">¿Cuánto tarda el envío?</h3>
+            <p class="mt-1">Los envíos estándar se realizan en 48 horas, con seguimiento de pedido y política de devoluciones de 30 días.</p>
           </article>
         </div>
       </section>
