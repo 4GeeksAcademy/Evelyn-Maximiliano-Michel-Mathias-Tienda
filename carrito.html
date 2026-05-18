@@ -17,9 +17,8 @@
     />
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
     <link rel="stylesheet" href="assets/styles.css" />
-    <script src="assets/main.js" defer></script>
   </head>
-  <body>
+  <body class="min-h-screen flex flex-col">
     <header class="sticky top-0 z-30 border-b border-[#e4ddd4] bg-[#fffdf9]/95 backdrop-blur">
       <div class="site-shell">
         <nav class="flex items-center justify-between gap-4 py-4" aria-label="Principal">
@@ -33,18 +32,22 @@
             <a href="checkout.html" class="rounded-full px-4 py-2 text-sm font-semibold hover:bg-[#f5eee6]">Checkout</a>
             <button class="rounded-full border border-[#ddd4c7] px-4 py-2 text-sm font-semibold">Mi cuenta</button>
           </div>
-          <button data-menu-toggle class="inline-flex rounded-lg border border-[#ddd4c7] px-3 py-2 text-sm font-semibold md:hidden" aria-label="Abrir menu">Menu</button>
+          <details class="group md:hidden">
+            <summary class="list-none inline-flex cursor-pointer rounded-lg border border-[#ddd4c7] px-3 py-2 text-sm font-semibold">
+              Menu
+            </summary>
+            <div class="absolute right-4 top-16 z-40 w-48 space-y-2 rounded-2xl border border-[#eee5d8] bg-[#fffdf9] p-3 shadow-lg">
+              <a href="index.html" class="block rounded-lg px-3 py-2 font-semibold hover:bg-[#f7efe6]">Home</a>
+              <a href="catalogo.html" class="block rounded-lg px-3 py-2 font-semibold hover:bg-[#f7efe6]">Catalogo</a>
+              <a href="producto.html" class="block rounded-lg px-3 py-2 font-semibold hover:bg-[#f7efe6]">Producto</a>
+              <a href="checkout.html" class="block rounded-lg px-3 py-2 font-semibold hover:bg-[#f7efe6]">Checkout</a>
+            </div>
+          </details>
         </nav>
-        <div data-menu class="hidden space-y-2 border-t border-[#eee5d8] pb-4 pt-3 md:hidden">
-          <a href="index.html" class="block rounded-lg px-3 py-2 font-semibold hover:bg-[#f7efe6]">Home</a>
-          <a href="catalogo.html" class="block rounded-lg px-3 py-2 font-semibold hover:bg-[#f7efe6]">Catalogo</a>
-          <a href="producto.html" class="block rounded-lg px-3 py-2 font-semibold hover:bg-[#f7efe6]">Producto</a>
-          <a href="checkout.html" class="block rounded-lg px-3 py-2 font-semibold hover:bg-[#f7efe6]">Checkout</a>
-        </div>
       </div>
     </header>
 
-    <main class="site-shell py-8">
+    <main class="site-shell flex-1 py-8">
       <section class="reveal">
         <h1 class="text-4xl font-black text-[#152235]">Carrito de compra</h1>
         <p class="mt-2">Revisa tus productos antes de continuar al pago.</p>
