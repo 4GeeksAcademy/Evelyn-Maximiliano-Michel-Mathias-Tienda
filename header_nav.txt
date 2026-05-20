@@ -1,0 +1,150 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Catálogo de Maison Riviera con filtros por categoría y talla. Descubre 20 productos destacados de moda francesa."
+    />
+    <meta name="keywords" content="catálogo ropa, filtros talla, moda francesa, ecommerce" />
+    <title>Maison Riviera | Catálogo</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Playfair+Display:wght@600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <style>
+      body {
+        font-family: 'Manrope', sans-serif;
+      }
+
+      .mobile-menu {
+        position: relative;
+      }
+
+      .mobile-menu__toggle {
+        position: absolute;
+        opacity: 0;
+        pointer-events: none;
+      }
+
+      .mobile-menu__button {
+        width: 2.9rem;
+        height: 2.6rem;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 0.75rem;
+        border: 1px solid #e4ddd4;
+        background: #f4efe8;
+        cursor: pointer;
+      }
+
+      .mobile-menu__icon {
+        position: relative;
+        width: 1.3rem;
+        height: 0.95rem;
+      }
+
+      .mobile-menu__icon span {
+        position: absolute;
+        left: 0;
+        width: 100%;
+        height: 2px;
+        border-radius: 999px;
+        background: #152235;
+        transition: transform 0.25s ease, opacity 0.2s ease;
+      }
+
+      .mobile-menu__icon span:nth-child(1) {
+        top: 0;
+      }
+
+      .mobile-menu__icon span:nth-child(2) {
+        top: 0.4rem;
+      }
+
+      .mobile-menu__icon span:nth-child(3) {
+        top: 0.8rem;
+      }
+
+      .mobile-menu__panel {
+        position: absolute;
+        right: 0;
+        top: calc(100% + 0.65rem);
+        width: 13rem;
+        padding: 0.65rem;
+        display: grid;
+        gap: 0.2rem;
+        border: 1px solid #e4ddd4;
+        border-radius: 0.9rem;
+        background: #fffdf9;
+        box-shadow: 0 16px 28px rgba(21, 34, 53, 0.14);
+        opacity: 0;
+        visibility: hidden;
+        transform: translateY(-0.35rem);
+        transition: opacity 0.22s ease, transform 0.22s ease, visibility 0.22s ease;
+      }
+
+      .mobile-menu__link {
+        display: block;
+        border-radius: 0.65rem;
+        padding: 0.6rem 0.75rem;
+        color: #152235;
+        font-weight: 700;
+        text-decoration: none;
+      }
+
+      .mobile-menu__link:hover {
+        background: #f4efe8;
+      }
+
+      .mobile-menu__toggle:focus-visible + .mobile-menu__button {
+        outline: 2px solid rgba(199, 96, 51, 0.65);
+        outline-offset: 2px;
+      }
+
+      .mobile-menu__toggle:checked + .mobile-menu__button .mobile-menu__icon span:nth-child(1) {
+        transform: translateY(0.4rem) rotate(45deg);
+      }
+
+      .mobile-menu__toggle:checked + .mobile-menu__button .mobile-menu__icon span:nth-child(2) {
+        opacity: 0;
+      }
+
+      .mobile-menu__toggle:checked + .mobile-menu__button .mobile-menu__icon span:nth-child(3) {
+        transform: translateY(-0.4rem) rotate(-45deg);
+      }
+
+      .mobile-menu__toggle:checked ~ .mobile-menu__panel {
+        opacity: 1;
+        visibility: visible;
+        transform: translateY(0);
+      }
+
+      @media (min-width: 768px) {
+        .mobile-menu {
+          display: none;
+        }
+      }
+    </style>
+  </head>
+  <body class="bg-[#fffdf9] text-[#1e1f22] antialiased">
+    <header class="sticky top-0 z-30 border-b border-[#e4ddd4] bg-[#fffdf9]/95 backdrop-blur">
+      <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-10">
+        <nav class="flex items-center justify-between gap-4 py-4" aria-label="Principal">
+          <a href="index.html" aria-label="Ir al inicio - Maison Riviera" class="[font-family:'Playfair_Display',serif] rounded-sm text-2xl font-extrabold tracking-wide text-[#152235] transition-colors hover:text-[#c76033] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#c76033] focus-visible:ring-offset-2 focus-visible:ring-offset-[#fffdf9] sm:text-3xl">Maison Riviera</a>
+          <form class="hidden flex-1 max-w-xl items-center rounded-full border border-[#e4ddd4] bg-[#f4efe8] px-4 py-2 md:flex" role="search" aria-label="Buscar productos">
+            <label for="search-catalog" class="sr-only">Buscar</label>
+            <input id="search-catalog" type="search" placeholder="Buscar en catálogo" class="w-full border-0 bg-transparent text-sm text-[#1e1f22] placeholder:text-[#666b73] focus:outline-none" />
+          </form>
+          <div class="hidden items-center gap-3 md:flex">
+            <a href="catalogo.html" class="rounded-full px-4 py-2 text-sm font-semibold text-[#152235] transition hover:bg-[#f4efe8]">Catalogo</a>
+            <a href="carrito.html" class="rounded-full px-4 py-2 text-sm font-semibold text-[#152235] transition hover:bg-[#f4efe8]">Carrito</a>
+            <button class="rounded-full border border-[#152235] px-4 py-2 text-sm font-semibold text-[#152235] transition hover:bg-[#152235] hover:text-[#fffdf9]">Mi cuenta</button>
+          </div>
+          <div class="mobile-menu md:hidden">
+            <input id="mobile-menu-toggle" type="checkbox" class="mobile-menu__toggle" aria-label="Abrir o cerrar menu de navegacion" />
