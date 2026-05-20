@@ -123,18 +123,20 @@
       .hero-carousel__overlay {
         position: absolute;
         inset: 0;
-        background: linear-gradient(120deg, rgba(21, 34, 53, 0.9), rgba(30, 31, 34, 0.78), rgba(199, 96, 51, 0.45));
+        background: rgba(21, 34, 53, 0.58);
       }
 
       .hero-carousel__overlay--inverse {
-        background: linear-gradient(120deg, rgba(199, 96, 51, 0.22), rgba(30, 31, 34, 0.58), rgba(21, 34, 53, 0.9));
+        background: rgba(21, 34, 53, 0.58);
       }
 
       .hero-carousel__content {
         position: relative;
         z-index: 2;
         height: 100%;
-        width: 100%;
+        width: 70%;
+        max-width: 70%;
+        box-sizing: border-box;
         display: flex;
         flex-direction: column;
         justify-content: center;
@@ -150,6 +152,8 @@
         text-align: right;
         padding-left: 2rem;
         padding-right: 4.8rem;
+        margin-left: auto;
+        margin-right: 0;
       }
 
       .hero-carousel__content--left {
@@ -299,8 +303,8 @@
       @media (max-width: 640px) {
         .hero-carousel,
         .hero-carousel__slide {
-          min-height: 0;
-          aspect-ratio: 5 / 4;
+          min-height: 20rem;
+          aspect-ratio: 4 / 5;
         }
 
         .hero-carousel__slide img {
@@ -321,12 +325,7 @@
 
         .hero-carousel__overlay,
         .hero-carousel__overlay--inverse {
-          background: linear-gradient(
-            180deg,
-            rgba(21, 34, 53, 0.2) 0%,
-            rgba(21, 34, 53, 0.34) 44%,
-            rgba(21, 34, 53, 0.86) 100%
-          );
+          background: rgba(21, 34, 53, 0.58);
         }
 
         .hero-carousel__content {
@@ -336,7 +335,8 @@
           padding-bottom: 3.15rem;
           padding-left: 3rem;
           padding-right: 1rem;
-          width: min(72%, 17.5rem);
+          width: 70%;
+          max-width: 70%;
           margin-right: auto;
         }
 
@@ -348,9 +348,9 @@
         }
 
         .hero-carousel__title {
-          max-width: 12.5ch;
-          font-size: clamp(2rem, 8.2vw, 2.3rem);
-          line-height: 0.94;
+          max-width: 11.5ch;
+          font-size: clamp(1.75rem, 7.4vw, 2.05rem);
+          line-height: 1;
         }
 
         .hero-carousel__eyebrow {
@@ -362,6 +362,7 @@
           font-size: 0.94rem;
           letter-spacing: 0.12em;
           line-height: 1.1;
+          white-space: nowrap;
         }
 
         .hero-carousel__description {
@@ -384,35 +385,23 @@
         }
 
         .hero-carousel__arrow {
-          width: 2.1rem;
-          height: 2.1rem;
-          margin-top: -1.05rem;
-          font-size: 1.3rem;
-          line-height: 1.95rem;
+          display: none !important;
         }
       }
 
-      @media (min-width: 460px) and (max-width: 640px) {
-        .hero-carousel,
-        .hero-carousel__slide {
-          aspect-ratio: 16 / 11;
+      @media (max-width: 460px) {
+        .hero-carousel__slide--1 .hero-carousel__content,
+        .hero-carousel__slide--3 .hero-carousel__content {
+          padding-left: 1.2rem;
         }
 
-        .hero-carousel__description {
-          display: block;
-          margin-top: 0.45rem;
-          font-size: 0.88rem;
-          line-height: 1.35;
+        .hero-carousel__slide--2 .hero-carousel__content--right {
+          padding-right: 1.2rem;
         }
 
-        .hero-carousel__title {
-          max-width: 13.5ch;
-          font-size: clamp(2rem, 6.7vw, 2.45rem);
-        }
-
-        .hero-carousel__eyebrow {
+        .hero-carousel__slide .hero-carousel__eyebrow {
           font-size: 0.82rem;
-          letter-spacing: 0.15em;
+          letter-spacing: 0.1em;
         }
       }
 
@@ -563,18 +552,18 @@
     <main>
       <section class="mx-auto mt-6 max-w-7xl px-4 sm:px-6 lg:px-10">
         <article class="hero-carousel">
-          <input type="radio" name="hero-slide" id="hero-slide-1" aria-label="Slide 1" />
+          <input type="radio" name="hero-slide" id="hero-slide-1" aria-label="Slide 1" checked />
           <input type="radio" name="hero-slide" id="hero-slide-2" aria-label="Slide 2" />
           <input type="radio" name="hero-slide" id="hero-slide-3" aria-label="Slide 3" />
 
           <div class="hero-carousel__track">
             <section class="hero-carousel__slide hero-carousel__slide--1" aria-label="Colección 1">
-              <img src="assets/img/banner-coleccion-primavera.png" alt="Colección Maison Riviera en tonos cálidos" fetchpriority="high" />
+              <img src="assets/img/banner-coleccion-primavera.png" alt="Colección Maison Riviera en tonos cálidos" fetchpriority="high" class="h-full w-full object-cover md:object-[92%_center] lg:object-center" />
               <div class="hero-carousel__overlay"></div>
-              <div class="hero-carousel__content hero-carousel__content--left">
+              <div class="hero-carousel__content hero-carousel__content--left md:pr-16 lg:pr-16">
                 <p class="hero-carousel__eyebrow inline-flex w-fit rounded-full border border-[#fffdf9]/40 bg-[#fffdf9]/15 px-3 py-1 text-xs uppercase tracking-[0.2em]">Colección primavera verano</p>
-                <h1 class="hero-carousel__title max-w-[18ch] [font-family:'Playfair_Display',serif] text-[2.6rem] font-black leading-[0.95] sm:text-4xl md:text-6xl">Estilo francés contemporáneo para tu día a día</h1>
-                <p class="hero-carousel__description max-w-xl text-sm text-[#fffdf9]/85 md:text-base">Descubre piezas premium con líneas limpias, materiales ligeros y una identidad moderna para ciudad y escapadas de fin de semana.</p>
+                <h1 class="hero-carousel__title max-w-[18ch] [font-family:'Playfair_Display',serif] text-[2rem] font-black leading-[0.98] sm:text-[2.3rem] md:text-[2.45rem] lg:text-6xl lg:leading-[0.95]">Estilo francés contemporáneo para tu día a día</h1>
+                <p class="hero-carousel__description max-w-xl text-sm text-[#fffdf9]/85 md:max-w-[34ch] md:text-[0.95rem] lg:max-w-xl lg:text-base">Descubre piezas premium con líneas limpias, materiales ligeros y una identidad moderna para ciudad y escapadas de fin de semana.</p>
                 <div class="hero-carousel__actions flex flex-wrap gap-3">
                   <a href="catalogo.html" class="rounded-full bg-white px-5 py-3 text-sm font-extrabold text-[#152235]">Ver catálogo</a>
                 </div>
@@ -582,12 +571,12 @@
             </section>
 
             <section class="hero-carousel__slide hero-carousel__slide--2" aria-label="Colección 2">
-              <img src="assets/img/banner-estilo-urbano.png" alt="Colección Maison Riviera con estilo urbano" loading="lazy" decoding="async" />
+              <img src="assets/img/banner-estilo-urbano.png" alt="Colección Maison Riviera con estilo urbano" loading="lazy" decoding="async" class="h-full w-full object-cover md:object-[44%_center] lg:object-center" />
               <div class="hero-carousel__overlay hero-carousel__overlay--inverse"></div>
-              <div class="hero-carousel__content hero-carousel__content--right">
+              <div class="hero-carousel__content hero-carousel__content--right md:pl-16 lg:pl-16">
                 <p class="hero-carousel__eyebrow inline-flex w-fit rounded-full border border-[#fffdf9]/40 bg-[#fffdf9]/15 px-3 py-1 text-xs uppercase tracking-[0.2em]">Nueva edición</p>
-                <h2 class="hero-carousel__title max-w-[18ch] [font-family:'Playfair_Display',serif] text-[2.6rem] font-black leading-[0.95] sm:text-4xl md:text-6xl">Texturas ligeras, impacto elegante</h2>
-                <p class="hero-carousel__description max-w-xl text-sm text-[#fffdf9]/85 md:text-base">Looks versátiles para oficina, paseo y fin de semana, con una paleta fresca y sofisticada.</p>
+                <h2 class="hero-carousel__title max-w-[18ch] [font-family:'Playfair_Display',serif] text-[2rem] font-black leading-[0.98] sm:text-[2.3rem] md:text-[2.45rem] lg:text-6xl lg:leading-[0.95]">Texturas ligeras, impacto elegante</h2>
+                <p class="hero-carousel__description max-w-xl text-sm text-[#fffdf9]/85 md:max-w-[34ch] md:text-[0.95rem] lg:max-w-xl lg:text-base">Looks versátiles para oficina, paseo y fin de semana, con una paleta fresca y sofisticada.</p>
                 <div class="hero-carousel__actions flex flex-wrap gap-3">
                   <a href="catalogo.html" class="rounded-full bg-white px-5 py-3 text-sm font-extrabold text-[#152235]">Ver catálogo</a>
                 </div>
@@ -595,12 +584,12 @@
             </section>
 
             <section class="hero-carousel__slide hero-carousel__slide--3" aria-label="Colección 3">
-              <img src="assets/img/banner-enfoque-minimalista.png" alt="Colección Maison Riviera con enfoque minimalista" loading="lazy" decoding="async" />
+              <img src="assets/img/banner-enfoque-minimalista.png" alt="Colección Maison Riviera con enfoque minimalista" loading="lazy" decoding="async" class="h-full w-full object-cover object-[76%_top]" />
               <div class="hero-carousel__overlay"></div>
-              <div class="hero-carousel__content hero-carousel__content--left">
+              <div class="hero-carousel__content hero-carousel__content--left md:pr-16 lg:pr-16">
                 <p class="hero-carousel__eyebrow inline-flex w-fit rounded-full border border-[#fffdf9]/40 bg-[#fffdf9]/15 px-3 py-1 text-xs uppercase tracking-[0.2em]">Diseño de temporada</p>
-                <h2 class="hero-carousel__title max-w-[18ch] [font-family:'Playfair_Display',serif] text-[2.6rem] font-black leading-[0.95] sm:text-4xl md:text-6xl">Una colección hecha para destacar</h2>
-                <p class="hero-carousel__description max-w-xl text-sm text-[#fffdf9]/85 md:text-base">Prendas pensadas para combinar personalidad, comodidad y presencia en cada detalle.</p>
+                <h2 class="hero-carousel__title max-w-[18ch] [font-family:'Playfair_Display',serif] text-[2rem] font-black leading-[0.98] sm:text-[2.3rem] md:text-[2.45rem] lg:text-6xl lg:leading-[0.95]">Una colección hecha para destacar</h2>
+                <p class="hero-carousel__description max-w-xl text-sm text-[#fffdf9]/85 md:max-w-[34ch] md:text-[0.95rem] lg:max-w-xl lg:text-base">Prendas pensadas para combinar personalidad, comodidad y presencia en cada detalle.</p>
                 <div class="hero-carousel__actions flex flex-wrap gap-3">
                   <a href="catalogo.html" class="rounded-full bg-white px-5 py-3 text-sm font-extrabold text-[#152235]">Ver catálogo</a>
                 </div>
