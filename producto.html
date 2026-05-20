@@ -3,12 +3,77 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
+    <meta name="googlebot" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
     <meta
       name="description"
-      content="Detalle de producto Maison Riviera con información de talla, precio, cantidad y descripción de materiales y usos recomendados."
+      content="Compra la Chaqueta Marine Line de Maison Riviera: diseño francés, material técnico resistente al viento, envío en 48 h y devoluciones en 30 días."
     />
+    <link rel="canonical" href="https://maisonriviera.fr/producto.html" />
+    <link rel="alternate" hreflang="es" href="https://maisonriviera.fr/producto.html" />
+    <link rel="alternate" hreflang="x-default" href="https://maisonriviera.fr/producto.html" />
     <meta name="keywords" content="producto de moda, talla ropa, agregar al carrito, ecommerce" />
-    <title>Maison Riviera | Vista de producto</title>
+    <meta name="theme-color" content="#152235" />
+    <meta property="og:locale" content="es_ES" />
+    <meta property="og:type" content="product" />
+    <meta property="og:site_name" content="Maison Riviera" />
+    <meta property="og:title" content="Chaqueta Marine Line | Maison Riviera" />
+    <meta property="og:description" content="Chaqueta técnica premium con estilo francés contemporáneo. Disponible para compra online segura." />
+    <meta property="og:url" content="https://maisonriviera.fr/producto.html" />
+    <meta property="og:image" content="https://images.unsplash.com/photo-1591047139829-d91aecb6caea?auto=format&fit=crop&w=1400&q=80" />
+    <meta property="og:image:alt" content="Chaqueta Marine Line azul marino de Maison Riviera" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Chaqueta Marine Line | Maison Riviera" />
+    <meta name="twitter:description" content="Descubre la Chaqueta Marine Line: diseño premium, envío en 48 h y compra segura." />
+    <meta name="twitter:image" content="https://images.unsplash.com/photo-1591047139829-d91aecb6caea?auto=format&fit=crop&w=1400&q=80" />
+    <title>Chaqueta Marine Line | Maison Riviera</title>
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@graph": [
+          {
+            "@type": "BreadcrumbList",
+            "itemListElement": [
+              {
+                "@type": "ListItem",
+                "position": 1,
+                "name": "Inicio",
+                "item": "https://maisonriviera.fr/index.html"
+              },
+              {
+                "@type": "ListItem",
+                "position": 2,
+                "name": "Producto",
+                "item": "https://maisonriviera.fr/producto.html"
+              }
+            ]
+          },
+          {
+            "@type": "Product",
+            "@id": "https://maisonriviera.fr/producto.html#product",
+            "name": "Chaqueta Marine Line",
+            "description": "Chaqueta de estilo francés contemporáneo con tejido técnico resistente al viento y acabado hidrófugo para lluvia ligera.",
+            "image": [
+              "https://images.unsplash.com/photo-1591047139829-d91aecb6caea?auto=format&fit=crop&w=1400&q=80"
+            ],
+            "sku": "MR-JKT-2309",
+            "brand": {
+              "@type": "Brand",
+              "name": "Maison Riviera"
+            },
+            "offers": {
+              "@type": "Offer",
+              "url": "https://maisonriviera.fr/producto.html",
+              "priceCurrency": "EUR",
+              "price": "190",
+              "priceValidUntil": "2027-12-31",
+              "availability": "https://schema.org/InStock",
+              "itemCondition": "https://schema.org/NewCondition"
+            }
+          }
+        ]
+      }
+    </script>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -16,6 +81,148 @@
       rel="stylesheet"
     />
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <style>
+      .product-route {
+        display: block;
+        height: 0;
+        scroll-margin-top: 120px;
+        visibility: hidden;
+      }
+
+      .product-view {
+        display: none;
+      }
+
+      .product-view--default {
+        display: block;
+      }
+
+      #chaqueta-marine-line:target ~ .product-views .product-view,
+      #camisas:target ~ .product-views .product-view,
+      #pantalones:target ~ .product-views .product-view,
+      #calzado:target ~ .product-views .product-view,
+      #accesorios:target ~ .product-views .product-view {
+        display: none;
+      }
+
+      #chaqueta-marine-line:target ~ .product-views .product-view--chaqueta,
+      #camisas:target ~ .product-views .product-view--camisas,
+      #pantalones:target ~ .product-views .product-view--pantalones,
+      #calzado:target ~ .product-views .product-view--calzado,
+      #accesorios:target ~ .product-views .product-view--accesorios {
+        display: block;
+      }
+
+      .mobile-menu {
+        position: relative;
+      }
+
+      .mobile-menu__toggle {
+        position: absolute;
+        opacity: 0;
+        pointer-events: none;
+      }
+
+      .mobile-menu__button {
+        width: 2.9rem;
+        height: 2.6rem;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 0.75rem;
+        border: 1px solid #e4ddd4;
+        background: #f4efe8;
+        cursor: pointer;
+      }
+
+      .mobile-menu__icon {
+        position: relative;
+        width: 1.3rem;
+        height: 0.95rem;
+      }
+
+      .mobile-menu__icon span {
+        position: absolute;
+        left: 0;
+        width: 100%;
+        height: 2px;
+        border-radius: 999px;
+        background: #152235;
+        transition: transform 0.25s ease, opacity 0.2s ease;
+      }
+
+      .mobile-menu__icon span:nth-child(1) {
+        top: 0;
+      }
+
+      .mobile-menu__icon span:nth-child(2) {
+        top: 0.4rem;
+      }
+
+      .mobile-menu__icon span:nth-child(3) {
+        top: 0.8rem;
+      }
+
+      .mobile-menu__panel {
+        position: absolute;
+        right: 0;
+        top: calc(100% + 0.65rem);
+        width: 13rem;
+        padding: 0.65rem;
+        display: grid;
+        gap: 0.2rem;
+        border: 1px solid #e4ddd4;
+        border-radius: 0.9rem;
+        background: #fffdf9;
+        box-shadow: 0 16px 28px rgba(21, 34, 53, 0.14);
+        opacity: 0;
+        visibility: hidden;
+        transform: translateY(-0.35rem);
+        transition: opacity 0.22s ease, transform 0.22s ease, visibility 0.22s ease;
+      }
+
+      .mobile-menu__link {
+        display: block;
+        border-radius: 0.65rem;
+        padding: 0.6rem 0.75rem;
+        color: #152235;
+        font-weight: 700;
+        text-decoration: none;
+      }
+
+      .mobile-menu__link:hover {
+        background: #f4efe8;
+      }
+
+      .mobile-menu__toggle:focus-visible + .mobile-menu__button {
+        outline: 2px solid rgba(199, 96, 51, 0.65);
+        outline-offset: 2px;
+      }
+
+      .mobile-menu__toggle:checked + .mobile-menu__button .mobile-menu__icon span:nth-child(1) {
+        transform: translateY(0.4rem) rotate(45deg);
+      }
+
+      .mobile-menu__toggle:checked + .mobile-menu__button .mobile-menu__icon span:nth-child(2) {
+        opacity: 0;
+      }
+
+      .mobile-menu__toggle:checked + .mobile-menu__button .mobile-menu__icon span:nth-child(3) {
+        transform: translateY(-0.4rem) rotate(-45deg);
+      }
+
+      .mobile-menu__toggle:checked ~ .mobile-menu__panel {
+        opacity: 1;
+        visibility: visible;
+        transform: translateY(0);
+      }
+
+      @media (min-width: 768px) {
+        .mobile-menu {
+          display: none;
+        }
+      }
+    </style>
     <script src="assets/main.js" defer></script>
   </head>
   <body class="bg-[#fffdf9] text-[#1e1f22] antialiased [font-family:'Manrope',sans-serif]">
@@ -32,69 +239,203 @@
             <a href="carrito.html" class="rounded-full px-4 py-2 text-sm font-semibold text-[#152235] transition hover:bg-[#f4efe8]">Carrito</a>
             <button class="rounded-full border border-[#152235] px-4 py-2 text-sm font-semibold text-[#152235] transition hover:bg-[#152235] hover:text-[#fffdf9]">Mi cuenta</button>
           </div>
-          <details class="md:hidden">
-            <summary class="inline-flex cursor-pointer list-none rounded-lg border border-[#e4ddd4] bg-[#f4efe8] px-3 py-2 text-sm font-semibold text-[#152235]">Menú</summary>
-            <div class="absolute right-4 top-16 w-52 space-y-2 rounded-xl border border-[#e4ddd4] bg-[#fffdf9] p-3 shadow-lg sm:right-6">
-              <a href="catalogo.html" class="block rounded-lg px-3 py-2 font-semibold text-[#152235] hover:bg-[#f4efe8]">Catálogo</a>
-              <a href="producto.html" class="block rounded-lg px-3 py-2 font-semibold text-[#152235] hover:bg-[#f4efe8]">Producto</a>
-              <a href="carrito.html" class="block rounded-lg px-3 py-2 font-semibold text-[#152235] hover:bg-[#f4efe8]">Carrito</a>
-              <a href="checkout.html" class="block rounded-lg px-3 py-2 font-semibold text-[#152235] hover:bg-[#f4efe8]">Checkout</a>
+          <div class="mobile-menu md:hidden">
+            <input id="mobile-menu-toggle" type="checkbox" class="mobile-menu__toggle" aria-label="Abrir o cerrar menu de navegacion" />
+            <label for="mobile-menu-toggle" class="mobile-menu__button" aria-hidden="true">
+              <span class="mobile-menu__icon">
+                <span></span>
+                <span></span>
+                <span></span>
+              </span>
+            </label>
+            <div class="mobile-menu__panel" role="menu" aria-label="Navegacion movil">
+              <a href="catalogo.html" class="mobile-menu__link" role="menuitem">Catalogo</a>
+              <a href="carrito.html" class="mobile-menu__link" role="menuitem">Carrito</a>
+              <a href="#" class="mobile-menu__link" role="menuitem">Mi cuenta</a>
             </div>
-          </details>
+          </div>
         </nav>
       </div>
     </header>
 
-    <main class="mx-auto max-w-7xl px-4 py-8 sm:px-6 lg:px-10">
-      <article class="grid gap-8 lg:grid-cols-2">
-        <section>
-          <img
-            src="https://images.unsplash.com/photo-1591047139829-d91aecb6caea?auto=format&fit=crop&w=1400&q=80"
-            alt="Chaqueta Marine Line azul marino"
-            class="h-[440px] w-full rounded-3xl border border-[#e4ddd4] object-cover"
-          />
-        </section>
+    <main class="mx-auto max-w-7xl px-4 py-5 sm:px-6 sm:py-7 lg:px-10 lg:py-8">
+      <span id="chaqueta-marine-line" class="product-route" aria-hidden="true"></span>
+      <span id="camisas" class="product-route" aria-hidden="true"></span>
+      <span id="pantalones" class="product-route" aria-hidden="true"></span>
+      <span id="calzado" class="product-route" aria-hidden="true"></span>
+      <span id="accesorios" class="product-route" aria-hidden="true"></span>
 
-        <section class="rounded-3xl border border-[#e4ddd4] bg-[#fffdf9] p-6 shadow-[0_15px_35px_rgba(21,34,53,0.08)] md:p-8" aria-labelledby="product-name">
-          <p class="inline-flex rounded-full border border-[#efc39f] bg-[#ffe7d1] px-3 py-1 text-xs font-bold uppercase tracking-[0.15em] text-[#8c3c1e]">Producto destacado</p>
-          <h1 id="product-name" class="mt-3 [font-family:'Playfair_Display',serif] text-4xl font-black text-[#152235]">Chaqueta Marine Line</h1>
-          <p class="mt-2 text-sm text-[#666b73]">Código: MR-JKT-2309</p>
+      <nav aria-label="Migas de pan" class="mb-4 text-[13px] text-[#666b73] sm:mb-6 sm:text-sm">
+        <ol class="flex flex-wrap items-center gap-2">
+          <li><a href="index.html" class="hover:text-[#c76033]">Inicio</a></li>
+          <li aria-hidden="true">/</li>
+          <li><a href="catalogo.html" class="hover:text-[#c76033]">Catálogo</a></li>
+          <li aria-hidden="true">/</li>
+          <li class="font-semibold text-[#152235]" aria-current="page">Producto</li>
+        </ol>
+      </nav>
 
-          <div class="mt-6 space-y-3 text-sm text-[#1e1f22]">
-            <p><strong>Talla:</strong> M</p>
-            <p><strong>Precio:</strong> <span class="text-xl font-extrabold text-[#152235]">EUR 190</span></p>
-          </div>
-
-          <div data-qty-wrap class="mt-6">
-            <label for="product-qty" class="mb-2 block text-sm font-bold text-[#1e1f22]">Cantidad</label>
-            <div class="flex w-fit items-center rounded-xl border border-[#e4ddd4] bg-[#fffdf9]">
-              <button data-qty-minus type="button" class="px-4 py-2 text-lg font-bold text-[#152235]">-</button>
-              <input id="product-qty" data-qty-input type="number" min="1" max="15" value="1" class="w-14 border-x border-[#e4ddd4] bg-transparent text-center text-[#1e1f22]" />
-              <button data-qty-plus type="button" class="px-4 py-2 text-lg font-bold text-[#152235]">+</button>
+      <div class="product-views">
+      <section class="product-view product-view--chaqueta">
+        <article class="grid grid-cols-1 items-start gap-3 sm:gap-6 md:grid-cols-2 md:items-stretch md:gap-7 lg:gap-8 lg:max-h-[66vh]">
+          <section class="mx-auto w-full max-w-[21rem] overflow-hidden rounded-2xl border border-[#e4ddd4] bg-[#f4efe8] sm:max-w-[22rem] sm:rounded-3xl lg:mx-0 lg:max-w-none lg:h-full">
+            <div class="aspect-square w-full sm:aspect-[4/5] lg:h-full lg:aspect-auto lg:max-h-[66vh]">
+              <img src="https://images.unsplash.com/photo-1591047139829-d91aecb6caea?auto=format&fit=crop&w=1400&q=80" alt="Chaqueta Marine Line azul marino" class="h-full w-full object-contain" />
             </div>
-          </div>
-
-          <div class="mt-8 flex flex-wrap gap-3">
-            <a href="carrito.html" class="rounded-full bg-[#152235] px-6 py-3 text-sm font-extrabold text-[#fffdf9] transition hover:bg-[#1e1f22]">Agregar al carrito</a>
-            <a href="checkout.html" class="rounded-full border border-[#c76033] bg-[#ffe7d1] px-6 py-3 text-sm font-bold text-[#152235] transition hover:bg-[#ffd7b9]">Comprar ahora</a>
-          </div>
+          </section>
+          <section class="mx-auto w-full max-w-[21rem] rounded-2xl border border-[#e4ddd4] bg-[#fffdf9] p-3 shadow-[0_15px_35px_rgba(21,34,53,0.08)] sm:max-w-[22rem] sm:rounded-3xl sm:p-5 lg:mx-0 lg:h-full lg:max-w-none lg:p-7 lg:max-h-[66vh] lg:overflow-auto">
+            <h1 class="[font-family:'Playfair_Display',serif] text-2xl font-black leading-tight text-[#152235] sm:text-3xl lg:text-4xl">Chaqueta Marine Line</h1>
+            <p class="mt-2 text-xs text-[#666b73] sm:text-sm">Código: MR-JKT-2309</p>
+            <p class="mt-2 text-sm text-[#1e1f22] sm:mt-3"><strong>Talla:</strong> M, L, XL</p>
+            <p class="mt-1.5 text-sm text-[#1e1f22]"><strong>Precio:</strong> <span class="text-base font-extrabold text-[#152235] sm:text-lg md:text-xl">EUR 190</span></p>
+            <div class="mt-3 sm:mt-4" data-qty-wrap>
+              <p class="mb-2 text-sm font-semibold text-[#1e1f22]">Cantidad</p>
+              <div class="inline-flex items-center rounded-full border border-[#d9cfc2] bg-[#f4efe8] p-1">
+                <button type="button" data-qty-minus class="rounded-full px-3 py-1 text-lg font-bold text-[#152235]" aria-label="Disminuir cantidad">-</button>
+                <input type="number" data-qty-input min="1" max="15" value="1" class="w-14 border-0 bg-transparent text-center text-sm font-bold text-[#152235] focus:outline-none" aria-label="Cantidad" />
+                <button type="button" data-qty-plus class="rounded-full px-3 py-1 text-lg font-bold text-[#152235]" aria-label="Aumentar cantidad">+</button>
+              </div>
+            </div>
+            <a href="carrito.html" class="mt-4 inline-flex w-full justify-center rounded-full bg-[#152235] px-6 py-3 text-sm font-extrabold text-[#fffdf9] transition hover:bg-[#1e1f22] sm:mt-6 sm:w-auto">Agregar al carrito</a>
+          </section>
+        </article>
+        <section class="mt-6 rounded-2xl border border-[#e4ddd4] bg-[#fffdf9] p-4 sm:mt-8 sm:rounded-3xl sm:p-6 md:p-8">
+          <h2 class="[font-family:'Playfair_Display',serif] text-xl font-bold text-[#152235] sm:text-2xl">Descripción detallada</h2>
+          <p class="mt-3 text-sm leading-6 text-[#1e1f22] sm:mt-4 sm:leading-7"><strong>Materiales:</strong> Tejido técnico con mezcla de poliéster reciclado y algodón, interior transpirable y acabado hidrófugo para lluvia ligera.</p>
+          <p class="mt-3 text-sm leading-6 text-[#1e1f22] sm:leading-7"><strong>Uso recomendado:</strong> Ideal para clima templado, trayectos urbanos, viajes de fin de semana y looks casuales con enfoque elegante.</p>
         </section>
-      </article>
+      </section>
 
-      <section class="mt-8 rounded-3xl border border-[#e4ddd4] bg-[#fffdf9] p-6 shadow-[0_15px_35px_rgba(21,34,53,0.08)]" aria-labelledby="detail-description">
-        <h2 id="detail-description" class="[font-family:'Playfair_Display',serif] text-2xl font-extrabold text-[#152235]">Descripción detallada</h2>
-        <div class="mt-4 grid gap-5 md:grid-cols-2">
-          <article>
-            <h3 class="text-lg font-bold text-[#1e1f22]">Materiales</h3>
-            <p class="mt-2 text-sm text-[#666b73]">Exterior en mezcla técnica resistente al viento, interior con forro transpirable y acabado hidrófugo para lluvia ligera. Cremallera frontal reforzada y costuras selladas en hombro.</p>
-          </article>
+      <section class="product-view product-view--camisas">
+        <article class="grid grid-cols-1 items-start gap-3 sm:gap-6 md:grid-cols-2 md:items-stretch md:gap-7 lg:gap-8 lg:max-h-[66vh]">
+          <section class="mx-auto w-full max-w-[21rem] overflow-hidden rounded-2xl border border-[#e4ddd4] bg-[#f4efe8] sm:max-w-[22rem] sm:rounded-3xl lg:mx-0 lg:max-w-none lg:h-full">
+            <div class="aspect-square w-full sm:aspect-[4/5] lg:h-full lg:aspect-auto lg:max-h-[66vh]">
+              <img src="https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?auto=format&fit=crop&w=1400&q=80" alt="Camisa Riviera Blanc" class="h-full w-full object-contain" />
+            </div>
+          </section>
+          <section class="mx-auto w-full max-w-[21rem] rounded-2xl border border-[#e4ddd4] bg-[#fffdf9] p-3 shadow-[0_15px_35px_rgba(21,34,53,0.08)] sm:max-w-[22rem] sm:rounded-3xl sm:p-5 lg:mx-0 lg:h-full lg:max-w-none lg:p-7 lg:max-h-[66vh] lg:overflow-auto">
+            <h1 class="[font-family:'Playfair_Display',serif] text-2xl font-black leading-tight text-[#152235] sm:text-3xl lg:text-4xl">Camisa Riviera Blanc</h1>
+            <p class="mt-2 text-xs text-[#666b73] sm:text-sm">Código: MR-SH-1489</p>
+            <p class="mt-2 text-sm text-[#1e1f22] sm:mt-3"><strong>Talla:</strong> S, M, L, XL</p>
+            <p class="mt-1.5 text-sm text-[#1e1f22]"><strong>Precio:</strong> <span class="text-base font-extrabold text-[#152235] sm:text-lg md:text-xl">EUR 89</span></p>
+            <div class="mt-3 sm:mt-4" data-qty-wrap>
+              <p class="mb-2 text-sm font-semibold text-[#1e1f22]">Cantidad</p>
+              <div class="inline-flex items-center rounded-full border border-[#d9cfc2] bg-[#f4efe8] p-1">
+                <button type="button" data-qty-minus class="rounded-full px-3 py-1 text-lg font-bold text-[#152235]" aria-label="Disminuir cantidad">-</button>
+                <input type="number" data-qty-input min="1" max="15" value="1" class="w-14 border-0 bg-transparent text-center text-sm font-bold text-[#152235] focus:outline-none" aria-label="Cantidad" />
+                <button type="button" data-qty-plus class="rounded-full px-3 py-1 text-lg font-bold text-[#152235]" aria-label="Aumentar cantidad">+</button>
+              </div>
+            </div>
+            <a href="carrito.html" class="mt-4 inline-flex w-full justify-center rounded-full bg-[#152235] px-6 py-3 text-sm font-extrabold text-[#fffdf9] transition hover:bg-[#1e1f22] sm:mt-6 sm:w-auto">Agregar al carrito</a>
+          </section>
+        </article>
+        <section class="mt-6 rounded-2xl border border-[#e4ddd4] bg-[#fffdf9] p-4 sm:mt-8 sm:rounded-3xl sm:p-6 md:p-8">
+          <h2 class="[font-family:'Playfair_Display',serif] text-xl font-bold text-[#152235] sm:text-2xl">Descripción detallada</h2>
+          <p class="mt-3 text-sm leading-6 text-[#1e1f22] sm:mt-4 sm:leading-7"><strong>Materiales:</strong> Popelina premium de algodón con fibras elásticas para mejor movilidad y tacto suave sobre la piel.</p>
+          <p class="mt-3 text-sm leading-6 text-[#1e1f22] sm:leading-7"><strong>Uso recomendado:</strong> Recomendada para oficina, reuniones informales y eventos de día donde se requiera una presentación pulida y cómoda.</p>
+        </section>
+      </section>
 
-          <article>
-            <h3 class="text-lg font-bold text-[#1e1f22]">Uso recomendado</h3>
-            <p class="mt-2 text-sm text-[#666b73]">Ideal para oficina casual, viajes urbanos y salidas de media estación. Funciona muy bien con camisa de lino, pantalón slim o denim oscuro para un look francés actual.</p>
-          </article>
+      <section class="product-view product-view--pantalones">
+        <article class="grid grid-cols-1 items-start gap-3 sm:gap-6 md:grid-cols-2 md:items-stretch md:gap-7 lg:gap-8 lg:max-h-[66vh]">
+          <section class="mx-auto w-full max-w-[21rem] overflow-hidden rounded-2xl border border-[#e4ddd4] bg-[#f4efe8] sm:max-w-[22rem] sm:rounded-3xl lg:mx-0 lg:max-w-none lg:h-full">
+            <div class="aspect-square w-full sm:aspect-[4/5] lg:h-full lg:aspect-auto lg:max-h-[66vh]">
+              <img src="https://images.unsplash.com/photo-1614251055880-ee96e4803393?auto=format&fit=crop&w=1400&q=80" alt="Pantalón Sable Metro" class="h-full w-full object-contain" />
+            </div>
+          </section>
+          <section class="mx-auto w-full max-w-[21rem] rounded-2xl border border-[#e4ddd4] bg-[#fffdf9] p-3 shadow-[0_15px_35px_rgba(21,34,53,0.08)] sm:max-w-[22rem] sm:rounded-3xl sm:p-5 lg:mx-0 lg:h-full lg:max-w-none lg:p-7 lg:max-h-[66vh] lg:overflow-auto">
+            <h1 class="[font-family:'Playfair_Display',serif] text-2xl font-black leading-tight text-[#152235] sm:text-3xl lg:text-4xl">Pantalón Sable Metro</h1>
+            <p class="mt-2 text-xs text-[#666b73] sm:text-sm">Código: MR-PN-1910</p>
+            <p class="mt-2 text-sm text-[#1e1f22] sm:mt-3"><strong>Talla:</strong> M, L, XL</p>
+            <p class="mt-1.5 text-sm text-[#1e1f22]"><strong>Precio:</strong> <span class="text-base font-extrabold text-[#152235] sm:text-lg md:text-xl">EUR 110</span></p>
+            <div class="mt-3 sm:mt-4" data-qty-wrap>
+              <p class="mb-2 text-sm font-semibold text-[#1e1f22]">Cantidad</p>
+              <div class="inline-flex items-center rounded-full border border-[#d9cfc2] bg-[#f4efe8] p-1">
+                <button type="button" data-qty-minus class="rounded-full px-3 py-1 text-lg font-bold text-[#152235]" aria-label="Disminuir cantidad">-</button>
+                <input type="number" data-qty-input min="1" max="15" value="1" class="w-14 border-0 bg-transparent text-center text-sm font-bold text-[#152235] focus:outline-none" aria-label="Cantidad" />
+                <button type="button" data-qty-plus class="rounded-full px-3 py-1 text-lg font-bold text-[#152235]" aria-label="Aumentar cantidad">+</button>
+              </div>
+            </div>
+            <a href="carrito.html" class="mt-4 inline-flex w-full justify-center rounded-full bg-[#152235] px-6 py-3 text-sm font-extrabold text-[#fffdf9] transition hover:bg-[#1e1f22] sm:mt-6 sm:w-auto">Agregar al carrito</a>
+          </section>
+        </article>
+        <section class="mt-6 rounded-2xl border border-[#e4ddd4] bg-[#fffdf9] p-4 sm:mt-8 sm:rounded-3xl sm:p-6 md:p-8">
+          <h2 class="[font-family:'Playfair_Display',serif] text-xl font-bold text-[#152235] sm:text-2xl">Descripción detallada</h2>
+          <p class="mt-3 text-sm leading-6 text-[#1e1f22] sm:mt-4 sm:leading-7"><strong>Materiales:</strong> Sarga de algodón con refuerzo de elastano, costuras internas reforzadas y acabado suave de larga duración.</p>
+          <p class="mt-3 text-sm leading-6 text-[#1e1f22] sm:leading-7"><strong>Uso recomendado:</strong> Diseñado para jornadas largas, desplazamientos diarios y ocasiones semi formales que requieren versatilidad.</p>
+        </section>
+      </section>
+
+      <section class="product-view product-view--calzado">
+        <article class="grid grid-cols-1 items-start gap-3 sm:gap-6 md:grid-cols-2 md:items-stretch md:gap-7 lg:gap-8 lg:max-h-[66vh]">
+          <section class="mx-auto w-full max-w-[21rem] overflow-hidden rounded-2xl border border-[#e4ddd4] bg-[#f4efe8] sm:max-w-[22rem] sm:rounded-3xl lg:mx-0 lg:max-w-none lg:h-full">
+            <div class="aspect-square w-full sm:aspect-[4/5] lg:h-full lg:aspect-auto lg:max-h-[66vh]">
+              <img src="https://images.unsplash.com/photo-1543508282-6319a3e2621f?auto=format&fit=crop&w=1400&q=80" alt="Sneaker Cote 74" class="h-full w-full object-contain" />
+            </div>
+          </section>
+          <section class="mx-auto w-full max-w-[21rem] rounded-2xl border border-[#e4ddd4] bg-[#fffdf9] p-3 shadow-[0_15px_35px_rgba(21,34,53,0.08)] sm:max-w-[22rem] sm:rounded-3xl sm:p-5 lg:mx-0 lg:h-full lg:max-w-none lg:p-7 lg:max-h-[66vh] lg:overflow-auto">
+            <h1 class="[font-family:'Playfair_Display',serif] text-2xl font-black leading-tight text-[#152235] sm:text-3xl lg:text-4xl">Sneaker Cote 74</h1>
+            <p class="mt-2 text-xs text-[#666b73] sm:text-sm">Código: MR-SN-2274</p>
+            <p class="mt-2 text-sm text-[#1e1f22] sm:mt-3"><strong>Talla:</strong> 40, 42</p>
+            <p class="mt-1.5 text-sm text-[#1e1f22]"><strong>Precio:</strong> <span class="text-base font-extrabold text-[#152235] sm:text-lg md:text-xl">EUR 145</span></p>
+            <div class="mt-3 sm:mt-4" data-qty-wrap>
+              <p class="mb-2 text-sm font-semibold text-[#1e1f22]">Cantidad</p>
+              <div class="inline-flex items-center rounded-full border border-[#d9cfc2] bg-[#f4efe8] p-1">
+                <button type="button" data-qty-minus class="rounded-full px-3 py-1 text-lg font-bold text-[#152235]" aria-label="Disminuir cantidad">-</button>
+                <input type="number" data-qty-input min="1" max="15" value="1" class="w-14 border-0 bg-transparent text-center text-sm font-bold text-[#152235] focus:outline-none" aria-label="Cantidad" />
+                <button type="button" data-qty-plus class="rounded-full px-3 py-1 text-lg font-bold text-[#152235]" aria-label="Aumentar cantidad">+</button>
+              </div>
+            </div>
+            <a href="carrito.html" class="mt-4 inline-flex w-full justify-center rounded-full bg-[#152235] px-6 py-3 text-sm font-extrabold text-[#fffdf9] transition hover:bg-[#1e1f22] sm:mt-6 sm:w-auto">Agregar al carrito</a>
+          </section>
+        </article>
+        <section class="mt-6 rounded-2xl border border-[#e4ddd4] bg-[#fffdf9] p-4 sm:mt-8 sm:rounded-3xl sm:p-6 md:p-8">
+          <h2 class="[font-family:'Playfair_Display',serif] text-xl font-bold text-[#152235] sm:text-2xl">Descripción detallada</h2>
+          <p class="mt-3 text-sm leading-6 text-[#1e1f22] sm:mt-4 sm:leading-7"><strong>Materiales:</strong> Exterior de cuero tratado, suela de goma antideslizante y plantilla acolchada para amortiguación superior.</p>
+          <p class="mt-3 text-sm leading-6 text-[#1e1f22] sm:leading-7"><strong>Uso recomendado:</strong> Perfecto para caminatas urbanas, viajes cortos y estilismos casuales contemporáneos.</p>
+        </section>
+      </section>
+
+      <section class="product-view product-view--accesorios">
+        <article class="grid grid-cols-1 items-start gap-3 sm:gap-6 md:grid-cols-2 md:items-stretch md:gap-7 lg:gap-8 lg:max-h-[66vh]">
+          <section class="mx-auto w-full max-w-[21rem] overflow-hidden rounded-2xl border border-[#e4ddd4] bg-[#f4efe8] sm:max-w-[22rem] sm:rounded-3xl lg:mx-0 lg:max-w-none lg:h-full">
+            <div class="aspect-square w-full sm:aspect-[4/5] lg:h-full lg:aspect-auto lg:max-h-[66vh]">
+              <img src="https://images.unsplash.com/photo-1548036328-c9fa89d128fa?auto=format&fit=crop&w=1400&q=80" alt="Bolso Atelier Terre" class="h-full w-full object-contain" />
+            </div>
+          </section>
+          <section class="mx-auto w-full max-w-[21rem] rounded-2xl border border-[#e4ddd4] bg-[#fffdf9] p-3 shadow-[0_15px_35px_rgba(21,34,53,0.08)] sm:max-w-[22rem] sm:rounded-3xl sm:p-5 lg:mx-0 lg:h-full lg:max-w-none lg:p-7 lg:max-h-[66vh] lg:overflow-auto">
+            <h1 class="[font-family:'Playfair_Display',serif] text-2xl font-black leading-tight text-[#152235] sm:text-3xl lg:text-4xl">Bolso Atelier Terre</h1>
+            <p class="mt-2 text-xs text-[#666b73] sm:text-sm">Código: MR-AC-4170</p>
+            <p class="mt-2 text-sm text-[#1e1f22] sm:mt-3"><strong>Talla:</strong> Única</p>
+            <p class="mt-1.5 text-sm text-[#1e1f22]"><strong>Precio:</strong> <span class="text-base font-extrabold text-[#152235] sm:text-lg md:text-xl">EUR 170</span></p>
+            <div class="mt-3 sm:mt-4" data-qty-wrap>
+              <p class="mb-2 text-sm font-semibold text-[#1e1f22]">Cantidad</p>
+              <div class="inline-flex items-center rounded-full border border-[#d9cfc2] bg-[#f4efe8] p-1">
+                <button type="button" data-qty-minus class="rounded-full px-3 py-1 text-lg font-bold text-[#152235]" aria-label="Disminuir cantidad">-</button>
+                <input type="number" data-qty-input min="1" max="15" value="1" class="w-14 border-0 bg-transparent text-center text-sm font-bold text-[#152235] focus:outline-none" aria-label="Cantidad" />
+                <button type="button" data-qty-plus class="rounded-full px-3 py-1 text-lg font-bold text-[#152235]" aria-label="Aumentar cantidad">+</button>
+              </div>
+            </div>
+            <a href="carrito.html" class="mt-4 inline-flex w-full justify-center rounded-full bg-[#152235] px-6 py-3 text-sm font-extrabold text-[#fffdf9] transition hover:bg-[#1e1f22] sm:mt-6 sm:w-auto">Agregar al carrito</a>
+          </section>
+        </article>
+        <section class="mt-6 rounded-2xl border border-[#e4ddd4] bg-[#fffdf9] p-4 sm:mt-8 sm:rounded-3xl sm:p-6 md:p-8">
+          <h2 class="[font-family:'Playfair_Display',serif] text-xl font-bold text-[#152235] sm:text-2xl">Descripción detallada</h2>
+          <p class="mt-3 text-sm leading-6 text-[#1e1f22] sm:mt-4 sm:leading-7"><strong>Materiales:</strong> Cuero vegano de alta resistencia, forro interno textil y herrajes metálicos con acabado mate.</p>
+          <p class="mt-3 text-sm leading-6 text-[#1e1f22] sm:leading-7"><strong>Uso recomendado:</strong> Excelente para oficina, salidas de fin de semana y uso diario gracias a su capacidad y estructura liviana.</p>
+        </section>
+      </section>
+
+      <section class="product-view product-view--default rounded-3xl border border-dashed border-[#d9cfc2] bg-[#fffaf3] p-8 text-center">
+        <h2 class="[font-family:'Playfair_Display',serif] text-3xl font-black text-[#152235]">Selecciona un producto</h2>
+        <p class="mt-3 text-sm text-[#666b73]">Esta vista muestra solo el producto elegido desde el catálogo o desde el home.</p>
+        <div class="mt-6 flex flex-wrap justify-center gap-3">
+          <a href="catalogo.html" class="rounded-full bg-[#152235] px-6 py-3 text-sm font-extrabold text-[#fffdf9] transition hover:bg-[#1e1f22]">Ir al catálogo</a>
+          <a href="index.html" class="rounded-full border border-[#c76033] bg-[#ffe7d1] px-6 py-3 text-sm font-bold text-[#152235] transition hover:bg-[#ffd7b9]">Volver al home</a>
         </div>
       </section>
+      </div>
+
     </main>
 
     <footer class="mt-14 border-t border-[#e4ddd4] bg-[#f4efe8]" aria-labelledby="footer-brand">
