@@ -18,117 +18,6 @@
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
     <link rel="stylesheet" href="assets/styles.css" />
     <link rel="stylesheet" href="assets/input-error.css" />
-    <style>
-      .mobile-menu {
-        position: relative;
-      }
-
-      .mobile-menu__toggle {
-        position: absolute;
-        opacity: 0;
-        pointer-events: none;
-      }
-
-      .mobile-menu__button {
-        width: 2.9rem;
-        height: 2.6rem;
-        display: inline-flex;
-        align-items: center;
-        justify-content: center;
-        border-radius: 0.75rem;
-        border: 1px solid #e4ddd4;
-        background: #f4efe8;
-        cursor: pointer;
-      }
-
-      .mobile-menu__icon {
-        position: relative;
-        width: 1.3rem;
-        height: 0.95rem;
-      }
-
-      .mobile-menu__icon span {
-        position: absolute;
-        left: 0;
-        width: 100%;
-        height: 2px;
-        border-radius: 999px;
-        background: #152235;
-        transition: transform 0.25s ease, opacity 0.2s ease;
-      }
-
-      .mobile-menu__icon span:nth-child(1) {
-        top: 0;
-      }
-
-      .mobile-menu__icon span:nth-child(2) {
-        top: 0.4rem;
-      }
-
-      .mobile-menu__icon span:nth-child(3) {
-        top: 0.8rem;
-      }
-
-      .mobile-menu__panel {
-        position: absolute;
-        right: 0;
-        top: calc(100% + 0.65rem);
-        width: 13rem;
-        padding: 0.65rem;
-        display: grid;
-        gap: 0.2rem;
-        border: 1px solid #e4ddd4;
-        border-radius: 0.9rem;
-        background: #fffdf9;
-        box-shadow: 0 16px 28px rgba(21, 34, 53, 0.14);
-        opacity: 0;
-        visibility: hidden;
-        transform: translateY(-0.35rem);
-        transition: opacity 0.22s ease, transform 0.22s ease, visibility 0.22s ease;
-      }
-
-      .mobile-menu__link {
-        display: block;
-        border-radius: 0.65rem;
-        padding: 0.6rem 0.75rem;
-        color: #152235;
-        font-weight: 700;
-        text-decoration: none;
-      }
-
-      .mobile-menu__link:hover {
-        background: #f4efe8;
-      }
-
-      .mobile-menu__toggle:focus-visible + .mobile-menu__button {
-        outline: 2px solid rgba(199, 96, 51, 0.65);
-        outline-offset: 2px;
-      }
-
-      .mobile-menu__toggle:checked + .mobile-menu__button .mobile-menu__icon span:nth-child(1) {
-        transform: translateY(0.4rem) rotate(45deg);
-      }
-
-      .mobile-menu__toggle:checked + .mobile-menu__button .mobile-menu__icon span:nth-child(2) {
-        opacity: 0;
-      }
-
-      .mobile-menu__toggle:checked + .mobile-menu__button .mobile-menu__icon span:nth-child(3) {
-        transform: translateY(-0.4rem) rotate(-45deg);
-      }
-
-      .mobile-menu__toggle:checked ~ .mobile-menu__panel {
-        opacity: 1;
-        visibility: visible;
-        transform: translateY(0);
-      }
-
-      @media (min-width: 768px) {
-        .mobile-menu {
-          display: none;
-        }
-      }
-    </style>
     <script src="assets/main.js" defer></script>
   </head>
   <body>
@@ -172,32 +61,18 @@
     <!-- Checkout: pasos visuales -->
     <!-- =============================== -->
     <main class="site-shell py-8" data-checkout>
-      <!-- Pasos del checkout -->
-      <div class="flex items-center justify-between gap-2 sm:justify-start sm:gap-6">
-        <div class="flex items-center gap-2">
-          <span data-step-dot class="step-dot active">1</span>
-          <span class="text-xs font-semibold uppercase tracking-[0.12em]">Datos</span>
-        </div>
-        <div class="flex items-center gap-2">
-          <span data-step-dot class="step-dot">2</span>
-          <span class="text-xs font-semibold uppercase tracking-[0.12em]">Entrega</span>
-        </div>
-        <div class="flex items-center gap-2">
-          <span data-step-dot class="step-dot">3</span>
-          <span class="text-xs font-semibold uppercase tracking-[0.12em]">Pago</span>
-        </div>
-      </div>
+      
 
       <!-- Panel principal del checkout -->
       <section class="mt-8 glass-panel rounded-3xl p-6 md:p-8">
-        <p data-status class="text-sm font-semibold text-[#246a73]">Paso 1 de 3</p>
+
 
         <!-- =============================== -->
         <!-- Formulario de pasos del checkout -->
         <!-- =============================== -->
         <form class="mt-5">
-          <!-- Paso 1: Datos personales -->
-          <section data-step>
+          <!-- Contenedor 1: Datos personales -->
+          <section class="mb-8">
             <h2 class="text-2xl font-extrabold text-[#152235]">Datos personales</h2>
             <p class="mt-2 text-sm text-[#5d6874]">Ingresa tu información de contacto para identificar y confirmar tu pedido.</p>
             <div class="mt-4 grid gap-4 md:grid-cols-2">
@@ -213,8 +88,8 @@
             </div>
           </section>
 
-          <!-- Paso 2: Dirección de entrega -->
-          <section data-step class="hidden">
+          <!-- Contenedor 2: Dirección de entrega -->
+          <section class="mb-8">
             <h2 class="text-2xl font-extrabold text-[#152235]">Dirección de entrega</h2>
             <p class="mt-2 text-sm text-[#5d6874]">Completa la dirección donde quieres recibir tu compra.</p>
             <div class="mt-4 grid gap-4 md:grid-cols-2">
@@ -236,8 +111,8 @@
             </div>
           </section>
 
-          <!-- Paso 3: Pago con tarjeta -->
-          <section data-step class="hidden">
+          <!-- Contenedor 3: Pago con tarjeta -->
+          <section>
             <h2 class="text-2xl font-extrabold text-[#152235]">Pago con tarjeta</h2>
             <p class="mt-2 text-sm text-[#5d6874]">Introduce los datos de tu tarjeta para finalizar el proceso de pago.</p>
             <div class="mt-4 grid gap-4 md:grid-cols-2">
@@ -247,14 +122,17 @@
               <label class="text-sm font-semibold md:col-span-2">Número de tarjeta
                 <input type="number" required placeholder="4242 4242 4242 4242" class="mt-1 w-full rounded-xl border border-[#ddd1c2] bg-white px-3 py-2" />
               </label>
-                <label class="text-sm font-semibold">Vencimiento
-                  <input id="input-vencimiento" type="month" required class="w-full rounded-xl border border-[#ddd1c2] bg-white px-3 py-2" />
-                </label>
+              <label class="text-sm font-semibold">Vencimiento
+                <input id="input-vencimiento" type="month" required class="w-full rounded-xl border border-[#ddd1c2] bg-white px-3 py-2" />
+              </label>
               <label class="text-sm font-semibold">CVV
                 <input type="password" required placeholder="123" class="mt-1 w-full rounded-xl border border-[#ddd1c2] bg-white px-3 py-2" />
               </label>
             </div>
           </section>
+
+          <!-- Botón de finalizar compra -->
+          <button data-finish type="button" class="mt-4 rounded-full bg-[#246a73] border-2 border-[#174a3a] px-5 py-2 text-sm font-bold text-white shadow-sm hover:bg-[#174a3a] transition-colors">Finalizar compra</button>
         </form>
 
         <!-- =============================== -->
@@ -272,9 +150,9 @@
           </div>
 
           <!-- Botones de navegación de pasos -->
-          <button data-prev type="button" class="rounded-full border border-[#d8cec1] bg-white px-5 py-2 text-sm font-bold text-[#152235] disabled:cursor-not-allowed disabled:opacity-45">Anterior</button>
-          <button data-next type="button" class="rounded-full bg-[#152235] px-5 py-2 text-sm font-bold text-white">Siguiente</button>
-          <button data-finish type="button" class="hidden rounded-full bg-[#246a73] border-2 border-[#174a3a] px-5 py-2 text-sm font-bold text-white shadow-sm hover:bg-[#174a3a] transition-colors">Finalizar pago</button>
+          <!-- Eliminados los botones de anterior y siguiente -->
+
+          <!-- Eliminados los spans -->
         </div>
       </section>
     </main>

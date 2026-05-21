@@ -1,0 +1,24 @@
+.input-error-message {
+  display: flex;
+  align-items: center;
+  gap: 0.5em;
+  margin-top: 0.25em;
+  color: #fff;
+  background: #d32f2f;
+  border-radius: 0.5em;
+  padding: 0.4em 0.8em;
+  font-size: 0.95em;
+  font-weight: 500;
+  box-shadow: 0 2px 8px rgba(211,47,47,0.08);
+  animation: fadeInError 0.3s;
+}
+.input-error-message svg {
+  width: 1.2em;
+  height: 1.2em;
+  flex-shrink: 0;
+  margin-right: 0.2em;
+}
+@keyframes fadeInError {
+  from { opacity: 0; transform: translateY(-6px); }
+  to { opacity: 1; transform: translateY(0); }
+}
