@@ -5,10 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta
       name="description"
-      content="Catalogo de Maison Riviera con filtros por categoria y talla. Descubre 20 productos destacados de moda francesa."
+      content="Catálogo de Maison Riviera con filtros por categoría y talla. Descubre 20 productos destacados de moda francesa."
     />
-    <meta name="keywords" content="catalogo ropa, filtros talla, moda francesa, ecommerce" />
-    <title>Maison Riviera | Catalogo</title>
+    <meta name="keywords" content="catálogo ropa, filtros talla, moda francesa, ecommerce" />
+    <title>Maison Riviera | Catálogo</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -16,45 +16,169 @@
       rel="stylesheet"
     />
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
-    <link rel="stylesheet" href="assets/styles.css" />
-    <script src="assets/main.js" defer></script>
+    <style>
+      body {
+        font-family: 'Manrope', sans-serif;
+      }
+
+      .mobile-menu {
+        position: relative;
+      }
+
+      .mobile-menu__toggle {
+        position: absolute;
+        opacity: 0;
+        pointer-events: none;
+      }
+
+      .mobile-menu__button {
+        width: 2.9rem;
+        height: 2.6rem;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 0.75rem;
+        border: 1px solid #e4ddd4;
+        background: #f4efe8;
+        cursor: pointer;
+      }
+
+      .mobile-menu__icon {
+        position: relative;
+        width: 1.3rem;
+        height: 0.95rem;
+      }
+
+      .mobile-menu__icon span {
+        position: absolute;
+        left: 0;
+        width: 100%;
+        height: 2px;
+        border-radius: 999px;
+        background: #152235;
+        transition: transform 0.25s ease, opacity 0.2s ease;
+      }
+
+      .mobile-menu__icon span:nth-child(1) {
+        top: 0;
+      }
+
+      .mobile-menu__icon span:nth-child(2) {
+        top: 0.4rem;
+      }
+
+      .mobile-menu__icon span:nth-child(3) {
+        top: 0.8rem;
+      }
+
+      .mobile-menu__panel {
+        position: absolute;
+        right: 0;
+        top: calc(100% + 0.65rem);
+        width: 13rem;
+        padding: 0.65rem;
+        display: grid;
+        gap: 0.2rem;
+        border: 1px solid #e4ddd4;
+        border-radius: 0.9rem;
+        background: #fffdf9;
+        box-shadow: 0 16px 28px rgba(21, 34, 53, 0.14);
+        opacity: 0;
+        visibility: hidden;
+        transform: translateY(-0.35rem);
+        transition: opacity 0.22s ease, transform 0.22s ease, visibility 0.22s ease;
+      }
+
+      .mobile-menu__link {
+        display: block;
+        border-radius: 0.65rem;
+        padding: 0.6rem 0.75rem;
+        color: #152235;
+        font-weight: 700;
+        text-decoration: none;
+      }
+
+      .mobile-menu__link:hover {
+        background: #f4efe8;
+      }
+
+      .mobile-menu__toggle:focus-visible + .mobile-menu__button {
+        outline: 2px solid rgba(199, 96, 51, 0.65);
+        outline-offset: 2px;
+      }
+
+      .mobile-menu__toggle:checked + .mobile-menu__button .mobile-menu__icon span:nth-child(1) {
+        transform: translateY(0.4rem) rotate(45deg);
+      }
+
+      .mobile-menu__toggle:checked + .mobile-menu__button .mobile-menu__icon span:nth-child(2) {
+        opacity: 0;
+      }
+
+      .mobile-menu__toggle:checked + .mobile-menu__button .mobile-menu__icon span:nth-child(3) {
+        transform: translateY(-0.4rem) rotate(-45deg);
+      }
+
+      .mobile-menu__toggle:checked ~ .mobile-menu__panel {
+        opacity: 1;
+        visibility: visible;
+        transform: translateY(0);
+      }
+
+      @media (min-width: 768px) {
+        .mobile-menu {
+          display: none;
+        }
+      }
+    </style>
   </head>
-  <body>
+  <body class="bg-[#fffdf9] text-[#1e1f22] antialiased">
     <header class="sticky top-0 z-30 border-b border-[#e4ddd4] bg-[#fffdf9]/95 backdrop-blur">
-      <div class="site-shell">
+      <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-10">
         <nav class="flex items-center justify-between gap-4 py-4" aria-label="Principal">
-          <a href="index.html" class="brand-title text-2xl font-extrabold tracking-wide text-[#152235]">Maison Riviera</a>
-          <form class="hidden flex-1 max-w-xl items-center rounded-full border border-[#ddd4c7] bg-white px-4 py-2 md:flex" role="search" aria-label="Buscar productos">
+          <a href="index.html" aria-label="Ir al inicio - Maison Riviera" class="[font-family:'Playfair_Display',serif] rounded-sm text-2xl font-extrabold tracking-wide text-[#152235] transition-colors hover:text-[#c76033] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#c76033] focus-visible:ring-offset-2 focus-visible:ring-offset-[#fffdf9] sm:text-3xl">Maison Riviera</a>
+          <form class="hidden flex-1 max-w-xl items-center rounded-full border border-[#e4ddd4] bg-[#f4efe8] px-4 py-2 md:flex" role="search" aria-label="Buscar productos">
             <label for="search-catalog" class="sr-only">Buscar</label>
-            <input id="search-catalog" type="search" placeholder="Buscar en catalogo" class="w-full border-0 bg-transparent text-sm focus:outline-none" />
+            <input id="search-catalog" type="search" placeholder="Buscar en catálogo" class="w-full border-0 bg-transparent text-sm text-[#1e1f22] placeholder:text-[#666b73] focus:outline-none" />
           </form>
           <div class="hidden items-center gap-3 md:flex">
-            <a href="index.html" class="rounded-full px-4 py-2 text-sm font-semibold hover:bg-[#f5eee6]">Home</a>
-            <a href="carrito.html" class="rounded-full px-4 py-2 text-sm font-semibold hover:bg-[#f5eee6]">Carrito</a>
-            <button class="rounded-full border border-[#ddd4c7] px-4 py-2 text-sm font-semibold">Mi cuenta</button>
+            <a href="catalogo.html" class="rounded-full px-4 py-2 text-sm font-semibold text-[#152235] transition hover:bg-[#f4efe8]">Catalogo</a>
+            <a href="carrito.html" class="rounded-full px-4 py-2 text-sm font-semibold text-[#152235] transition hover:bg-[#f4efe8]">Carrito</a>
+            <button class="rounded-full border border-[#152235] px-4 py-2 text-sm font-semibold text-[#152235] transition hover:bg-[#152235] hover:text-[#fffdf9]">Mi cuenta</button>
           </div>
-          <button data-menu-toggle class="inline-flex rounded-lg border border-[#ddd4c7] px-3 py-2 text-sm font-semibold md:hidden" aria-label="Abrir menu">Menu</button>
+          <div class="mobile-menu md:hidden">
+            <input id="mobile-menu-toggle" type="checkbox" class="mobile-menu__toggle" aria-label="Abrir o cerrar menu de navegacion" />
+            <label for="mobile-menu-toggle" class="mobile-menu__button" aria-hidden="true">
+              <span class="mobile-menu__icon">
+                <span></span>
+                <span></span>
+                <span></span>
+              </span>
+            </label>
+            <div class="mobile-menu__panel" role="menu" aria-label="Navegacion movil">
+              <a href="catalogo.html" class="mobile-menu__link" role="menuitem">Catalogo</a>
+              <a href="carrito.html" class="mobile-menu__link" role="menuitem">Carrito</a>
+              <a href="#" class="mobile-menu__link" role="menuitem">Mi cuenta</a>
+            </div>
+          </div>
         </nav>
-        <div data-menu class="hidden space-y-2 border-t border-[#eee5d8] pb-4 pt-3 md:hidden">
-          <a href="index.html" class="block rounded-lg px-3 py-2 font-semibold hover:bg-[#f7efe6]">Home</a>
-          <a href="producto.html" class="block rounded-lg px-3 py-2 font-semibold hover:bg-[#f7efe6]">Producto</a>
-          <a href="carrito.html" class="block rounded-lg px-3 py-2 font-semibold hover:bg-[#f7efe6]">Carrito</a>
-          <a href="checkout.html" class="block rounded-lg px-3 py-2 font-semibold hover:bg-[#f7efe6]">Checkout</a>
-        </div>
       </div>
     </header>
 
-    <main class="site-shell py-8">
-      <section class="reveal" aria-labelledby="catalog-title">
-        <h1 id="catalog-title" class="text-4xl font-black text-[#152235]">Catalogo</h1>
-        <p class="mt-2 max-w-2xl">Coleccion curada de prendas y accesorios para cada momento del dia. Ajusta filtros para encontrar tu talla y categoria.</p>
+    <main class="mx-auto max-w-[1380px] px-4 pb-16 pt-10 sm:px-6 lg:px-10 lg:pt-12">
+      <section aria-labelledby="catalog-title" class="border-b border-[#e4ddd4] pb-12">
+        <p class="text-xs font-bold uppercase tracking-[0.24em] text-[#666b73]">Shop</p>
+        <div class="mt-4 grid gap-4 lg:grid-cols-[1.2fr_1fr] lg:items-end">
+          <h1 id="catalog-title" class="[font-family:'Playfair_Display',serif] text-5xl font-black leading-[0.95] text-[#152235] sm:text-6xl lg:text-7xl">Catálogo</h1>
+          <p class="max-w-xl text-base leading-relaxed text-[#1e1f22] sm:text-lg">Colección curada de prendas y accesorios para cada momento del día. Ajusta filtros para encontrar tu talla y categoría.</p>
+        </div>
       </section>
 
-      <section class="glass-panel mt-6 rounded-2xl p-4 reveal reveal-delay-1" aria-label="Filtros de catalogo">
-        <div class="grid gap-4 md:grid-cols-2 lg:grid-cols-4">
+      <section class="sticky top-[72px] z-20 mt-2 border-b border-[#e4ddd4] bg-[#fffdf9]/95 py-5 backdrop-blur" aria-label="Filtros de catálogo">
+        <div class="grid gap-3 md:grid-cols-2 lg:grid-cols-4">
           <div>
-            <label for="filtro-categoria" class="mb-1 block text-sm font-semibold">Categoria</label>
-            <select id="filtro-categoria" data-filter-category class="w-full rounded-xl border border-[#ded5c8] bg-white px-3 py-2">
+            <label for="filtro-categoria" class="mb-2 block text-[11px] font-bold uppercase tracking-[0.18em] text-[#666b73]">Categoría</label>
+            <select id="filtro-categoria" data-filter-category class="w-full border border-[#e4ddd4] bg-[#fffdf9] px-3 py-2.5 text-sm font-semibold text-[#152235] outline-none">
               <option value="all">Todas</option>
               <option value="calzado">Calzado</option>
               <option value="camisas">Camisas</option>
@@ -64,8 +188,8 @@
           </div>
 
           <div>
-            <label for="filtro-talla" class="mb-1 block text-sm font-semibold">Talla</label>
-            <select id="filtro-talla" data-filter-size class="w-full rounded-xl border border-[#ded5c8] bg-white px-3 py-2">
+            <label for="filtro-talla" class="mb-2 block text-[11px] font-bold uppercase tracking-[0.18em] text-[#666b73]">Talla</label>
+            <select id="filtro-talla" data-filter-size class="w-full border border-[#e4ddd4] bg-[#fffdf9] px-3 py-2.5 text-sm font-semibold text-[#152235] outline-none">
               <option value="all">Todas</option>
               <option value="S">S</option>
               <option value="M">M</option>
@@ -77,136 +201,294 @@
           </div>
 
           <div class="flex items-end">
-            <a href="producto.html" class="w-full rounded-xl bg-[#152235] px-4 py-2 text-center text-sm font-bold text-white">Ver producto destacado</a>
+            <a href="producto-chaqueta-marine-line.html" class="w-full bg-[#152235] px-4 py-2.5 text-center text-xs font-bold uppercase tracking-[0.1em] text-[#fffdf9] transition hover:bg-[#1e1f22]">Ver producto</a>
           </div>
 
           <div class="flex items-end">
-            <a href="carrito.html" class="w-full rounded-xl border border-[#d5c9b8] bg-[#fff8ee] px-4 py-2 text-center text-sm font-bold text-[#152235]">Ir a carrito</a>
+            <a href="carrito.html" class="w-full border border-[#c76033] bg-[#ffe7d1] px-4 py-2.5 text-center text-xs font-bold uppercase tracking-[0.1em] text-[#152235] transition hover:bg-[#ffd7b9]">Ir a carrito</a>
           </div>
         </div>
       </section>
 
-      <section class="mt-8" aria-label="Listado de productos">
-        <div data-catalog-grid class="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4 xl:grid-cols-5">
-          <article class="product-card rounded-2xl border border-[#e6ded3] bg-white p-3" data-category="camisas" data-sizes="S,M,L,XL">
-            <img src="https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?auto=format&fit=crop&w=800&q=80" alt="Camisa Riviera Blanc" class="h-40 w-full rounded-xl object-cover" />
-            <h2 class="mt-2 text-sm font-bold">Camisa Riviera Blanc</h2><p class="text-xs">EUR 89</p>
+      <section class="pt-12" aria-label="Listado de productos">
+        <div data-catalog-grid class="grid grid-cols-1 gap-x-6 gap-y-14 sm:grid-cols-2 lg:grid-cols-12">
+          <article class="group lg:col-span-6 xl:col-span-4" data-category="camisas" data-sizes="S,M,L,XL">
+            <img src="https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?auto=format&fit=crop&w=800&q=80" alt="Camisa Riviera Blanc" class="aspect-[4/5] w-full bg-[#f4efe8] object-cover transition duration-500 group-hover:scale-[1.02]" />
+            <h2 class="mt-4 text-[15px] font-semibold leading-snug text-[#1e1f22]">Camisa Riviera Blanc</h2><p class="mt-1 text-sm text-[#666b73]">EUR 89</p>
+            <div class="mt-2 flex items-center gap-2">
+              <span class="text-xs font-semibold text-[#666b73]">Colores:</span>
+              <span class="h-3 w-3 rounded-full border border-[#d7cec1] bg-[#f8f8f4]" title="Blanco" aria-label="Color blanco"></span>
+              <span class="h-3 w-3 rounded-full border border-[#d7cec1] bg-[#9fc4da]" title="Azul cielo" aria-label="Color azul cielo"></span>
+              <span class="h-3 w-3 rounded-full border border-[#d7cec1] bg-[#1e1f22]" title="Negro" aria-label="Color negro"></span>
+            </div>
+            <a href="producto-camisa-riviera-blanc.html" class="mt-3 inline-block text-sm font-bold text-[#c76033] hover:underline">Ver producto</a>
           </article>
-          <article class="product-card rounded-2xl border border-[#e6ded3] bg-white p-3" data-category="camisas" data-sizes="M,L,XL">
-            <img src="https://images.unsplash.com/photo-1548883354-94bcfe321cbb?auto=format&fit=crop&w=800&q=80" alt="Camisa Azure Stripe" class="h-40 w-full rounded-xl object-cover" />
-            <h2 class="mt-2 text-sm font-bold">Camisa Azure Stripe</h2><p class="text-xs">EUR 95</p>
+          <article class="group lg:col-span-3 xl:col-span-2" data-category="calzado" data-sizes="40,42">
+            <img src="https://images.unsplash.com/photo-1543508282-6319a3e2621f?auto=format&fit=crop&w=800&q=80" alt="Sneaker Cote 74" class="aspect-[3/4] w-full bg-[#f4efe8] object-cover transition duration-500 group-hover:scale-[1.02]" />
+            <h2 class="mt-4 text-[15px] font-semibold leading-snug text-[#1e1f22]">Sneaker Cote 74</h2><p class="mt-1 text-sm text-[#666b73]">EUR 145</p>
+            <div class="mt-2 flex items-center gap-2">
+              <span class="text-xs font-semibold text-[#666b73]">Colores:</span>
+              <span class="h-3 w-3 rounded-full border border-[#d7cec1] bg-[#f8f8f4]" title="Blanco" aria-label="Color blanco"></span>
+              <span class="h-3 w-3 rounded-full border border-[#d7cec1] bg-[#8a8f99]" title="Gris" aria-label="Color gris"></span>
+              <span class="h-3 w-3 rounded-full border border-[#d7cec1] bg-[#1e1f22]" title="Negro" aria-label="Color negro"></span>
+            </div>
+            <a href="producto-sneaker-cote-74.html" class="mt-3 inline-block text-sm font-bold text-[#c76033] hover:underline">Ver producto</a>
           </article>
-          <article class="product-card rounded-2xl border border-[#e6ded3] bg-white p-3" data-category="camisas" data-sizes="S,M,L">
-            <img src="https://images.unsplash.com/photo-1596755094514-f87e34085b2c?auto=format&fit=crop&w=800&q=80" alt="Camisa Linen Sky" class="h-40 w-full rounded-xl object-cover" />
-            <h2 class="mt-2 text-sm font-bold">Camisa Linen Sky</h2><p class="text-xs">EUR 83</p>
+          <article class="group lg:col-span-3 xl:col-span-2" data-category="accesorios" data-sizes="S,M,L">
+            <img src="https://images.unsplash.com/photo-1548036328-c9fa89d128fa?auto=format&fit=crop&w=800&q=80" alt="Bolso Atelier Terre" class="aspect-[3/4] w-full bg-[#f4efe8] object-cover transition duration-500 group-hover:scale-[1.02]" />
+            <h2 class="mt-4 text-[15px] font-semibold leading-snug text-[#1e1f22]">Bolso Atelier Terre</h2><p class="mt-1 text-sm text-[#666b73]">EUR 170</p>
+            <div class="mt-2 flex items-center gap-2">
+              <span class="text-xs font-semibold text-[#666b73]">Colores:</span>
+              <span class="h-3 w-3 rounded-full border border-[#d7cec1] bg-[#b47a4f]" title="Caramelo" aria-label="Color caramelo"></span>
+              <span class="h-3 w-3 rounded-full border border-[#d7cec1] bg-[#5f3b2f]" title="Chocolate" aria-label="Color chocolate"></span>
+              <span class="h-3 w-3 rounded-full border border-[#d7cec1] bg-[#1e1f22]" title="Negro" aria-label="Color negro"></span>
+            </div>
+            <a href="producto-bolso-atelier-terre.html" class="mt-3 inline-block text-sm font-bold text-[#c76033] hover:underline">Ver producto</a>
           </article>
-          <article class="product-card rounded-2xl border border-[#e6ded3] bg-white p-3" data-category="camisas" data-sizes="M,L,XL">
-            <img src="https://images.unsplash.com/photo-1514996937319-344454492b37?auto=format&fit=crop&w=800&q=80" alt="Camisa Dune Soft" class="h-40 w-full rounded-xl object-cover" />
-            <h2 class="mt-2 text-sm font-bold">Camisa Dune Soft</h2><p class="text-xs">EUR 92</p>
+          <article class="group lg:col-span-4 xl:col-span-2" data-category="pantalones" data-sizes="S,M,L,XL">
+            <img src="https://images.unsplash.com/photo-1624378439575-d8705ad7ae80?auto=format&fit=crop&w=800&q=80" alt="Pantalón Noir Frame" class="aspect-[3/4] w-full bg-[#f4efe8] object-cover transition duration-500 group-hover:scale-[1.02]" />
+            <h2 class="mt-4 text-[15px] font-semibold leading-snug text-[#1e1f22]">Pantalón Noir Frame</h2><p class="mt-1 text-sm text-[#666b73]">EUR 120</p>
+            <div class="mt-2 flex items-center gap-2">
+              <span class="text-xs font-semibold text-[#666b73]">Colores:</span>
+              <span class="h-3 w-3 rounded-full border border-[#d7cec1] bg-[#1e1f22]" title="Negro" aria-label="Color negro"></span>
+              <span class="h-3 w-3 rounded-full border border-[#d7cec1] bg-[#474b52]" title="Grafito" aria-label="Color grafito"></span>
+              <span class="h-3 w-3 rounded-full border border-[#d7cec1] bg-[#8a8f99]" title="Gris" aria-label="Color gris"></span>
+            </div>
+            <a href="producto-pantalon-noir-frame.html" class="mt-3 inline-block text-sm font-bold text-[#c76033] hover:underline">Ver producto</a>
+          </article>
+          <article class="group lg:col-span-4 xl:col-span-2" data-category="camisas" data-sizes="M,L,XL">
+            <img src="https://images.unsplash.com/photo-1596755094514-f87e34085b2c?auto=format&fit=crop&w=800&q=80" alt="Camisa Azure Stripe" class="aspect-[3/4] w-full bg-[#f4efe8] object-cover transition duration-500 group-hover:scale-[1.02]" />
+            <h2 class="mt-4 text-[15px] font-semibold leading-snug text-[#1e1f22]">Camisa Azure Stripe</h2><p class="mt-1 text-sm text-[#666b73]">EUR 95</p>
+            <div class="mt-2 flex items-center gap-2">
+              <span class="text-xs font-semibold text-[#666b73]">Colores:</span>
+              <span class="h-3 w-3 rounded-full border border-[#d7cec1] bg-[#9fc4da]" title="Azul cielo" aria-label="Color azul cielo"></span>
+              <span class="h-3 w-3 rounded-full border border-[#d7cec1] bg-[#f8f8f4]" title="Blanco" aria-label="Color blanco"></span>
+              <span class="h-3 w-3 rounded-full border border-[#d7cec1] bg-[#2f4a73]" title="Azul marino" aria-label="Color azul marino"></span>
+            </div>
+            <a href="producto-camisa-azure-stripe.html" class="mt-3 inline-block text-sm font-bold text-[#c76033] hover:underline">Ver producto</a>
+          </article>
+          <article class="group lg:col-span-4 xl:col-span-2" data-category="calzado" data-sizes="40,42">
+            <img src="https://images.unsplash.com/photo-1543163521-1bf539c55dd2?auto=format&fit=crop&w=800&q=80" alt="Loafer Palais" class="aspect-[3/4] w-full bg-[#f4efe8] object-cover transition duration-500 group-hover:scale-[1.02]" />
+            <h2 class="mt-4 text-[15px] font-semibold leading-snug text-[#1e1f22]">Loafer Palais</h2><p class="mt-1 text-sm text-[#666b73]">EUR 160</p>
+            <div class="mt-2 flex items-center gap-2">
+              <span class="text-xs font-semibold text-[#666b73]">Colores:</span>
+              <span class="h-3 w-3 rounded-full border border-[#d7cec1] bg-[#6a4a3c]" title="Marrón" aria-label="Color marrón"></span>
+              <span class="h-3 w-3 rounded-full border border-[#d7cec1] bg-[#1e1f22]" title="Negro" aria-label="Color negro"></span>
+              <span class="h-3 w-3 rounded-full border border-[#d7cec1] bg-[#5d2e46]" title="Borgoña" aria-label="Color borgoña"></span>
+            </div>
+            <a href="producto-loafer-palais.html" class="mt-3 inline-block text-sm font-bold text-[#c76033] hover:underline">Ver producto</a>
           </article>
 
-          <article class="product-card rounded-2xl border border-[#e6ded3] bg-white p-3" data-category="pantalones" data-sizes="S,M,L,XL">
-            <img src="https://images.unsplash.com/photo-1475180098004-ca77a66827be?auto=format&fit=crop&w=800&q=80" alt="Pantalon Noir Frame" class="h-40 w-full rounded-xl object-cover" />
-            <h2 class="mt-2 text-sm font-bold">Pantalon Noir Frame</h2><p class="text-xs">EUR 120</p>
+          <article class="group lg:col-span-6 xl:col-span-4" data-category="camisas" data-sizes="M,L,XL">
+            <img src="https://images.unsplash.com/photo-1512436991641-6745cdb1723f?auto=format&fit=crop&w=800&q=80" alt="Camisa Dune Soft" class="aspect-[4/5] w-full bg-[#f4efe8] object-cover transition duration-500 group-hover:scale-[1.02]" />
+            <h2 class="mt-4 text-[15px] font-semibold leading-snug text-[#1e1f22]">Camisa Dune Soft</h2><p class="mt-1 text-sm text-[#666b73]">EUR 92</p>
+            <div class="mt-2 flex items-center gap-2">
+              <span class="text-xs font-semibold text-[#666b73]">Colores:</span>
+              <span class="h-3 w-3 rounded-full border border-[#d7cec1] bg-[#dcc8a9]" title="Arena" aria-label="Color arena"></span>
+              <span class="h-3 w-3 rounded-full border border-[#d7cec1] bg-[#f2ece2]" title="Marfil" aria-label="Color marfil"></span>
+              <span class="h-3 w-3 rounded-full border border-[#d7cec1] bg-[#8d9f88]" title="Verde salvia" aria-label="Color verde salvia"></span>
+            </div>
+            <a href="producto-camisa-dune-soft.html" class="mt-3 inline-block text-sm font-bold text-[#c76033] hover:underline">Ver producto</a>
           </article>
-          <article class="product-card rounded-2xl border border-[#e6ded3] bg-white p-3" data-category="pantalones" data-sizes="M,L,XL">
-            <img src="https://images.unsplash.com/photo-1506629905607-c0f4a0f16f1c?auto=format&fit=crop&w=800&q=80" alt="Pantalon Sable Metro" class="h-40 w-full rounded-xl object-cover" />
-            <h2 class="mt-2 text-sm font-bold">Pantalon Sable Metro</h2><p class="text-xs">EUR 110</p>
+          <article class="group lg:col-span-3 xl:col-span-2" data-category="pantalones" data-sizes="M,L,XL">
+            <img src="https://images.unsplash.com/photo-1614251055880-ee96e4803393?auto=format&fit=crop&w=800&q=80" alt="Pantalón Sable Metro" class="aspect-[3/4] w-full bg-[#f4efe8] object-cover transition duration-500 group-hover:scale-[1.02]" />
+            <h2 class="mt-4 text-[15px] font-semibold leading-snug text-[#1e1f22]">Pantalón Sable Metro</h2><p class="mt-1 text-sm text-[#666b73]">EUR 110</p>
+            <div class="mt-2 flex items-center gap-2">
+              <span class="text-xs font-semibold text-[#666b73]">Colores:</span>
+              <span class="h-3 w-3 rounded-full border border-[#d7cec1] bg-[#d9c3a1]" title="Beige" aria-label="Color beige"></span>
+              <span class="h-3 w-3 rounded-full border border-[#d7cec1] bg-[#b78c5a]" title="Camel" aria-label="Color camel"></span>
+              <span class="h-3 w-3 rounded-full border border-[#d7cec1] bg-[#8a8f99]" title="Gris piedra" aria-label="Color gris piedra"></span>
+            </div>
+            <a href="producto-pantalon-sable-metro.html" class="mt-3 inline-block text-sm font-bold text-[#c76033] hover:underline">Ver producto</a>
           </article>
-          <article class="product-card rounded-2xl border border-[#e6ded3] bg-white p-3" data-category="pantalones" data-sizes="S,M,L">
-            <img src="https://images.unsplash.com/photo-1473966968600-fa801b869a1a?auto=format&fit=crop&w=800&q=80" alt="Pantalon Taupe Move" class="h-40 w-full rounded-xl object-cover" />
-            <h2 class="mt-2 text-sm font-bold">Pantalon Taupe Move</h2><p class="text-xs">EUR 98</p>
+          <article class="group lg:col-span-3 xl:col-span-2" data-category="accesorios" data-sizes="S,M,L,XL">
+            <img src="https://images.unsplash.com/photo-1523170335258-f5ed11844a49?auto=format&fit=crop&w=800&q=80" alt="Reloj Arc 12" class="aspect-[3/4] w-full bg-[#f4efe8] object-cover transition duration-500 group-hover:scale-[1.02]" />
+            <h2 class="mt-4 text-[15px] font-semibold leading-snug text-[#1e1f22]">Reloj Arc 12</h2><p class="mt-1 text-sm text-[#666b73]">EUR 199</p>
+            <div class="mt-2 flex items-center gap-2">
+              <span class="text-xs font-semibold text-[#666b73]">Colores:</span>
+              <span class="h-3 w-3 rounded-full border border-[#d7cec1] bg-[#b8bcc4]" title="Plata" aria-label="Color plata"></span>
+              <span class="h-3 w-3 rounded-full border border-[#d7cec1] bg-[#c58d7f]" title="Oro rosa" aria-label="Color oro rosa"></span>
+              <span class="h-3 w-3 rounded-full border border-[#d7cec1] bg-[#1e1f22]" title="Negro" aria-label="Color negro"></span>
+            </div>
+            <a href="producto-reloj-arc-12.html" class="mt-3 inline-block text-sm font-bold text-[#c76033] hover:underline">Ver producto</a>
           </article>
-          <article class="product-card rounded-2xl border border-[#e6ded3] bg-white p-3" data-category="pantalones" data-sizes="L,XL">
-            <img src="https://images.unsplash.com/photo-1614251055880-ee96e4803393?auto=format&fit=crop&w=800&q=80" alt="Pantalon Urban Sail" class="h-40 w-full rounded-xl object-cover" />
-            <h2 class="mt-2 text-sm font-bold">Pantalon Urban Sail</h2><p class="text-xs">EUR 132</p>
+          <article class="group lg:col-span-3 xl:col-span-2" data-category="calzado" data-sizes="40,42">
+            <img src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?auto=format&fit=crop&w=800&q=80" alt="Runner Seine Line" class="aspect-[3/4] w-full bg-[#f4efe8] object-cover transition duration-500 group-hover:scale-[1.02]" />
+            <h2 class="mt-4 text-[15px] font-semibold leading-snug text-[#1e1f22]">Runner Seine Line</h2><p class="mt-1 text-sm text-[#666b73]">EUR 138</p>
+            <div class="mt-2 flex items-center gap-2">
+              <span class="text-xs font-semibold text-[#666b73]">Colores:</span>
+              <span class="h-3 w-3 rounded-full border border-[#d7cec1] bg-[#8a8f99]" title="Gris" aria-label="Color gris"></span>
+              <span class="h-3 w-3 rounded-full border border-[#d7cec1] bg-[#2f6bce]" title="Azul eléctrico" aria-label="Color azul eléctrico"></span>
+              <span class="h-3 w-3 rounded-full border border-[#d7cec1] bg-[#1e1f22]" title="Negro" aria-label="Color negro"></span>
+            </div>
+            <a href="producto-runner-seine-line.html" class="mt-3 inline-block text-sm font-bold text-[#c76033] hover:underline">Ver producto</a>
+          </article>
+          <article class="group lg:col-span-3 xl:col-span-2" data-category="camisas" data-sizes="S,M,L">
+            <img src="https://images.unsplash.com/photo-1596755094514-f87e34085b2c?auto=format&fit=crop&w=800&q=80" alt="Camisa Linen Sky" class="aspect-[3/4] w-full bg-[#f4efe8] object-cover transition duration-500 group-hover:scale-[1.02]" />
+            <h2 class="mt-4 text-[15px] font-semibold leading-snug text-[#1e1f22]">Camisa Linen Sky</h2><p class="mt-1 text-sm text-[#666b73]">EUR 83</p>
+            <div class="mt-2 flex items-center gap-2">
+              <span class="text-xs font-semibold text-[#666b73]">Colores:</span>
+              <span class="h-3 w-3 rounded-full border border-[#d7cec1] bg-[#b9d8ee]" title="Celeste" aria-label="Color celeste"></span>
+              <span class="h-3 w-3 rounded-full border border-[#d7cec1] bg-[#f8f8f4]" title="Blanco" aria-label="Color blanco"></span>
+              <span class="h-3 w-3 rounded-full border border-[#d7cec1] bg-[#6e8196]" title="Azul humo" aria-label="Color azul humo"></span>
+            </div>
+            <a href="producto-camisa-linen-sky.html" class="mt-3 inline-block text-sm font-bold text-[#c76033] hover:underline">Ver producto</a>
           </article>
 
-          <article class="product-card rounded-2xl border border-[#e6ded3] bg-white p-3" data-category="calzado" data-sizes="40,42">
-            <img src="https://images.unsplash.com/photo-1595341595379-cf0f0f6f35c9?auto=format&fit=crop&w=800&q=80" alt="Sneaker Cote 74" class="h-40 w-full rounded-xl object-cover" />
-            <h2 class="mt-2 text-sm font-bold">Sneaker Cote 74</h2><p class="text-xs">EUR 145</p>
+          <article class="group lg:col-span-6 xl:col-span-4" data-category="pantalones" data-sizes="L,XL">
+            <img src="https://images.unsplash.com/photo-1503342217505-b0a15ec3261c?auto=format&fit=crop&w=800&q=80" alt="Pantalón Urban Sail" class="aspect-[4/5] w-full bg-[#f4efe8] object-cover transition duration-500 group-hover:scale-[1.02]" />
+            <h2 class="mt-4 text-[15px] font-semibold leading-snug text-[#1e1f22]">Pantalón Urban Sail</h2><p class="mt-1 text-sm text-[#666b73]">EUR 132</p>
+            <div class="mt-2 flex items-center gap-2">
+              <span class="text-xs font-semibold text-[#666b73]">Colores:</span>
+              <span class="h-3 w-3 rounded-full border border-[#d7cec1] bg-[#2f4a73]" title="Azul marino" aria-label="Color azul marino"></span>
+              <span class="h-3 w-3 rounded-full border border-[#d7cec1] bg-[#8a8f99]" title="Gris" aria-label="Color gris"></span>
+              <span class="h-3 w-3 rounded-full border border-[#d7cec1] bg-[#8f8a66]" title="Caqui" aria-label="Color caqui"></span>
+            </div>
+            <a href="producto-pantalon-urban-sail.html" class="mt-3 inline-block text-sm font-bold text-[#c76033] hover:underline">Ver producto</a>
           </article>
-          <article class="product-card rounded-2xl border border-[#e6ded3] bg-white p-3" data-category="calzado" data-sizes="40,42">
-            <img src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?auto=format&fit=crop&w=800&q=80" alt="Runner Seine Line" class="h-40 w-full rounded-xl object-cover" />
-            <h2 class="mt-2 text-sm font-bold">Runner Seine Line</h2><p class="text-xs">EUR 138</p>
+          <article class="group lg:col-span-3 xl:col-span-2" data-category="accesorios" data-sizes="S,M,L,XL">
+            <img src="https://images.unsplash.com/photo-1606760227091-3dd870d97f1d?auto=format&fit=crop&w=800&q=80" alt="Bufanda Riviera" class="aspect-[3/4] w-full bg-[#f4efe8] object-cover transition duration-500 group-hover:scale-[1.02]" />
+            <h2 class="mt-4 text-[15px] font-semibold leading-snug text-[#1e1f22]">Bufanda Riviera</h2><p class="mt-1 text-sm text-[#666b73]">EUR 52</p>
+            <div class="mt-2 flex items-center gap-2">
+              <span class="text-xs font-semibold text-[#666b73]">Colores:</span>
+              <span class="h-3 w-3 rounded-full border border-[#d7cec1] bg-[#f2ece2]" title="Crema" aria-label="Color crema"></span>
+              <span class="h-3 w-3 rounded-full border border-[#d7cec1] bg-[#be6d4a]" title="Terracota" aria-label="Color terracota"></span>
+              <span class="h-3 w-3 rounded-full border border-[#d7cec1] bg-[#2f5e66]" title="Azul petróleo" aria-label="Color azul petróleo"></span>
+            </div>
+            <a href="producto-bufanda-riviera.html" class="mt-3 inline-block text-sm font-bold text-[#c76033] hover:underline">Ver producto</a>
           </article>
-          <article class="product-card rounded-2xl border border-[#e6ded3] bg-white p-3" data-category="calzado" data-sizes="40,42">
-            <img src="https://images.unsplash.com/photo-1560769629-975ec94e6a86?auto=format&fit=crop&w=800&q=80" alt="Boot Mont Calm" class="h-40 w-full rounded-xl object-cover" />
-            <h2 class="mt-2 text-sm font-bold">Boot Mont Calm</h2><p class="text-xs">EUR 178</p>
+          <article class="group lg:col-span-3 xl:col-span-2" data-category="calzado" data-sizes="40,42">
+            <img src="https://images.unsplash.com/photo-1560769629-975ec94e6a86?auto=format&fit=crop&w=800&q=80" alt="Boot Mont Calm" class="aspect-[3/4] w-full bg-[#f4efe8] object-cover transition duration-500 group-hover:scale-[1.02]" />
+            <h2 class="mt-4 text-[15px] font-semibold leading-snug text-[#1e1f22]">Boot Mont Calm</h2><p class="mt-1 text-sm text-[#666b73]">EUR 178</p>
+            <div class="mt-2 flex items-center gap-2">
+              <span class="text-xs font-semibold text-[#666b73]">Colores:</span>
+              <span class="h-3 w-3 rounded-full border border-[#d7cec1] bg-[#6a4a3c]" title="Marrón" aria-label="Color marrón"></span>
+              <span class="h-3 w-3 rounded-full border border-[#d7cec1] bg-[#1e1f22]" title="Negro" aria-label="Color negro"></span>
+              <span class="h-3 w-3 rounded-full border border-[#d7cec1] bg-[#dcc8a9]" title="Arena" aria-label="Color arena"></span>
+            </div>
+            <a href="producto-boot-mont-calm.html" class="mt-3 inline-block text-sm font-bold text-[#c76033] hover:underline">Ver producto</a>
           </article>
-          <article class="product-card rounded-2xl border border-[#e6ded3] bg-white p-3" data-category="calzado" data-sizes="40,42">
-            <img src="https://images.unsplash.com/photo-1543163521-1bf539c55dd2?auto=format&fit=crop&w=800&q=80" alt="Loafer Palais" class="h-40 w-full rounded-xl object-cover" />
-            <h2 class="mt-2 text-sm font-bold">Loafer Palais</h2><p class="text-xs">EUR 160</p>
+          <article class="group lg:col-span-4 xl:col-span-2" data-category="camisas" data-sizes="S,M,L,XL">
+            <img src="https://images.unsplash.com/photo-1603252109303-2751441dd157?auto=format&fit=crop&w=800&q=80" alt="Camisa Copper Tide" class="aspect-[3/4] w-full bg-[#f4efe8] object-cover transition duration-500 group-hover:scale-[1.02]" />
+            <h2 class="mt-4 text-[15px] font-semibold leading-snug text-[#1e1f22]">Camisa Copper Tide</h2><p class="mt-1 text-sm text-[#666b73]">EUR 89</p>
+            <div class="mt-2 flex items-center gap-2">
+              <span class="text-xs font-semibold text-[#666b73]">Colores:</span>
+              <span class="h-3 w-3 rounded-full border border-[#d7cec1] bg-[#b76c47]" title="Cobre" aria-label="Color cobre"></span>
+              <span class="h-3 w-3 rounded-full border border-[#d7cec1] bg-[#f2ece2]" title="Marfil" aria-label="Color marfil"></span>
+              <span class="h-3 w-3 rounded-full border border-[#d7cec1] bg-[#3b3e44]" title="Carbón" aria-label="Color carbón"></span>
+            </div>
+            <a href="producto-camisa-copper-tide.html" class="mt-3 inline-block text-sm font-bold text-[#c76033] hover:underline">Ver producto</a>
           </article>
-
-          <article class="product-card rounded-2xl border border-[#e6ded3] bg-white p-3" data-category="accesorios" data-sizes="S,M,L">
-            <img src="https://images.unsplash.com/photo-1548036328-c9fa89d128fa?auto=format&fit=crop&w=800&q=80" alt="Bolso Atelier Terre" class="h-40 w-full rounded-xl object-cover" />
-            <h2 class="mt-2 text-sm font-bold">Bolso Atelier Terre</h2><p class="text-xs">EUR 170</p>
+          <article class="group lg:col-span-4 xl:col-span-2" data-category="pantalones" data-sizes="S,M,L">
+            <img src="https://images.unsplash.com/photo-1473966968600-fa801b869a1a?auto=format&fit=crop&w=800&q=80" alt="Pantalón Taupe Move" class="aspect-[3/4] w-full bg-[#f4efe8] object-cover transition duration-500 group-hover:scale-[1.02]" />
+            <h2 class="mt-4 text-[15px] font-semibold leading-snug text-[#1e1f22]">Pantalón Taupe Move</h2><p class="mt-1 text-sm text-[#666b73]">EUR 98</p>
+            <div class="mt-2 flex items-center gap-2">
+              <span class="text-xs font-semibold text-[#666b73]">Colores:</span>
+              <span class="h-3 w-3 rounded-full border border-[#d7cec1] bg-[#8c7f73]" title="Taupe" aria-label="Color taupe"></span>
+              <span class="h-3 w-3 rounded-full border border-[#d7cec1] bg-[#6f7f53]" title="Oliva" aria-label="Color oliva"></span>
+              <span class="h-3 w-3 rounded-full border border-[#d7cec1] bg-[#474b52]" title="Grafito" aria-label="Color grafito"></span>
+            </div>
+            <a href="producto-pantalon-taupe-move.html" class="mt-3 inline-block text-sm font-bold text-[#c76033] hover:underline">Ver producto</a>
           </article>
-          <article class="product-card rounded-2xl border border-[#e6ded3] bg-white p-3" data-category="accesorios" data-sizes="S,M,L,XL">
-            <img src="https://images.unsplash.com/photo-1516826957135-700dedea698c?auto=format&fit=crop&w=800&q=80" alt="Cinturon Classic Oak" class="h-40 w-full rounded-xl object-cover" />
-            <h2 class="mt-2 text-sm font-bold">Cinturon Classic Oak</h2><p class="text-xs">EUR 58</p>
+          <article class="group lg:col-span-4 xl:col-span-2" data-category="accesorios" data-sizes="S,M,L,XL">
+            <img src="https://images.unsplash.com/photo-1516826957135-700dedea698c?auto=format&fit=crop&w=800&q=80" alt="Cinturón Classic Oak" class="aspect-[3/4] w-full bg-[#f4efe8] object-cover transition duration-500 group-hover:scale-[1.02]" />
+            <h2 class="mt-4 text-[15px] font-semibold leading-snug text-[#1e1f22]">Cinturón Classic Oak</h2><p class="mt-1 text-sm text-[#666b73]">EUR 58</p>
+            <div class="mt-2 flex items-center gap-2">
+              <span class="text-xs font-semibold text-[#666b73]">Colores:</span>
+              <span class="h-3 w-3 rounded-full border border-[#d7cec1] bg-[#b77242]" title="Coñac" aria-label="Color coñac"></span>
+              <span class="h-3 w-3 rounded-full border border-[#d7cec1] bg-[#5f3b2f]" title="Chocolate" aria-label="Color chocolate"></span>
+              <span class="h-3 w-3 rounded-full border border-[#d7cec1] bg-[#1e1f22]" title="Negro" aria-label="Color negro"></span>
+            </div>
+            <a href="producto-cinturon-classic-oak.html" class="mt-3 inline-block text-sm font-bold text-[#c76033] hover:underline">Ver producto</a>
           </article>
-          <article class="product-card rounded-2xl border border-[#e6ded3] bg-white p-3" data-category="accesorios" data-sizes="S,M,L,XL">
-            <img src="https://images.unsplash.com/photo-1606760227091-3dd870d97f1d?auto=format&fit=crop&w=800&q=80" alt="Bufanda Riviera" class="h-40 w-full rounded-xl object-cover" />
-            <h2 class="mt-2 text-sm font-bold">Bufanda Riviera</h2><p class="text-xs">EUR 52</p>
+          <article class="group lg:col-span-3 xl:col-span-2" data-category="pantalones" data-sizes="M,L,XL">
+            <img src="https://images.unsplash.com/photo-1624378439575-d8705ad7ae80?auto=format&fit=crop&w=800&q=80" alt="Pantalón Harbour Fit" class="aspect-[3/4] w-full bg-[#f4efe8] object-cover transition duration-500 group-hover:scale-[1.02]" />
+            <h2 class="mt-4 text-[15px] font-semibold leading-snug text-[#1e1f22]">Pantalón Harbour Fit</h2><p class="mt-1 text-sm text-[#666b73]">EUR 124</p>
+            <div class="mt-2 flex items-center gap-2">
+              <span class="text-xs font-semibold text-[#666b73]">Colores:</span>
+              <span class="h-3 w-3 rounded-full border border-[#d7cec1] bg-[#2f4f73]" title="Índigo" aria-label="Color índigo"></span>
+              <span class="h-3 w-3 rounded-full border border-[#d7cec1] bg-[#8a8f99]" title="Gris" aria-label="Color gris"></span>
+              <span class="h-3 w-3 rounded-full border border-[#d7cec1] bg-[#dcc8a9]" title="Arena" aria-label="Color arena"></span>
+            </div>
+            <a href="producto-pantalon-harbour-fit.html" class="mt-3 inline-block text-sm font-bold text-[#c76033] hover:underline">Ver producto</a>
           </article>
-          <article class="product-card rounded-2xl border border-[#e6ded3] bg-white p-3" data-category="accesorios" data-sizes="S,M,L,XL">
-            <img src="https://images.unsplash.com/photo-1543076447-215ad9ba6923?auto=format&fit=crop&w=800&q=80" alt="Gorra River Club" class="h-40 w-full rounded-xl object-cover" />
-            <h2 class="mt-2 text-sm font-bold">Gorra River Club</h2><p class="text-xs">EUR 44</p>
+          <article class="group lg:col-span-3 xl:col-span-2" data-category="accesorios" data-sizes="S,M,L,XL">
+            <img src="https://images.unsplash.com/photo-1543076447-215ad9ba6923?auto=format&fit=crop&w=800&q=80" alt="Gorra River Club" class="aspect-[3/4] w-full bg-[#f4efe8] object-cover transition duration-500 group-hover:scale-[1.02]" />
+            <h2 class="mt-4 text-[15px] font-semibold leading-snug text-[#1e1f22]">Gorra River Club</h2><p class="mt-1 text-sm text-[#666b73]">EUR 44</p>
+            <div class="mt-2 flex items-center gap-2">
+              <span class="text-xs font-semibold text-[#666b73]">Colores:</span>
+              <span class="h-3 w-3 rounded-full border border-[#d7cec1] bg-[#2f4a73]" title="Azul marino" aria-label="Color azul marino"></span>
+              <span class="h-3 w-3 rounded-full border border-[#d7cec1] bg-[#f8f8f4]" title="Blanco" aria-label="Color blanco"></span>
+              <span class="h-3 w-3 rounded-full border border-[#d7cec1] bg-[#1e1f22]" title="Negro" aria-label="Color negro"></span>
+            </div>
+            <a href="producto-gorra-river-club.html" class="mt-3 inline-block text-sm font-bold text-[#c76033] hover:underline">Ver producto</a>
           </article>
-
-          <article class="product-card rounded-2xl border border-[#e6ded3] bg-white p-3" data-category="camisas" data-sizes="S,M,L,XL">
-            <img src="https://images.unsplash.com/photo-1603252109303-2751441dd157?auto=format&fit=crop&w=800&q=80" alt="Camisa Copper Tide" class="h-40 w-full rounded-xl object-cover" />
-            <h2 class="mt-2 text-sm font-bold">Camisa Copper Tide</h2><p class="text-xs">EUR 89</p>
-          </article>
-          <article class="product-card rounded-2xl border border-[#e6ded3] bg-white p-3" data-category="pantalones" data-sizes="M,L,XL">
-            <img src="https://images.unsplash.com/photo-1624378439575-d8705ad7ae80?auto=format&fit=crop&w=800&q=80" alt="Pantalon Harbour Fit" class="h-40 w-full rounded-xl object-cover" />
-            <h2 class="mt-2 text-sm font-bold">Pantalon Harbour Fit</h2><p class="text-xs">EUR 124</p>
-          </article>
-          <article class="product-card rounded-2xl border border-[#e6ded3] bg-white p-3" data-category="calzado" data-sizes="40,42">
-            <img src="https://images.unsplash.com/photo-1539185441755-769473a23570?auto=format&fit=crop&w=800&q=80" alt="Sneaker Lumiere" class="h-40 w-full rounded-xl object-cover" />
-            <h2 class="mt-2 text-sm font-bold">Sneaker Lumiere</h2><p class="text-xs">EUR 149</p>
-          </article>
-          <article class="product-card rounded-2xl border border-[#e6ded3] bg-white p-3" data-category="accesorios" data-sizes="S,M,L,XL">
-            <img src="https://images.unsplash.com/photo-1523170335258-f5ed11844a49?auto=format&fit=crop&w=800&q=80" alt="Reloj Arc 12" class="h-40 w-full rounded-xl object-cover" />
-            <h2 class="mt-2 text-sm font-bold">Reloj Arc 12</h2><p class="text-xs">EUR 199</p>
+          <article class="group lg:col-span-6 xl:col-span-4" data-category="calzado" data-sizes="40,42">
+            <img src="https://images.unsplash.com/photo-1539185441755-769473a23570?auto=format&fit=crop&w=800&q=80" alt="Sneaker Lumiere" class="aspect-[4/5] w-full bg-[#f4efe8] object-cover transition duration-500 group-hover:scale-[1.02]" />
+            <h2 class="mt-4 text-[15px] font-semibold leading-snug text-[#1e1f22]">Sneaker Lumiere</h2><p class="mt-1 text-sm text-[#666b73]">EUR 149</p>
+            <div class="mt-2 flex items-center gap-2">
+              <span class="text-xs font-semibold text-[#666b73]">Colores:</span>
+              <span class="h-3 w-3 rounded-full border border-[#d7cec1] bg-[#f8f8f4]" title="Blanco" aria-label="Color blanco"></span>
+              <span class="h-3 w-3 rounded-full border border-[#d7cec1] bg-[#c9ced6]" title="Gris claro" aria-label="Color gris claro"></span>
+              <span class="h-3 w-3 rounded-full border border-[#d7cec1] bg-[#9cc7b2]" title="Verde menta" aria-label="Color verde menta"></span>
+            </div>
+            <a href="producto-sneaker-lumiere.html" class="mt-3 inline-block text-sm font-bold text-[#c76033] hover:underline">Ver producto</a>
           </article>
         </div>
       </section>
     </main>
 
-    <footer class="mt-14 border-t border-[#ded4c7] bg-[#fffaf3]">
-      <div class="site-shell grid gap-8 py-10 md:grid-cols-4">
-        <section>
-          <h4 class="text-lg font-bold text-[#152235]">Maison Riviera</h4>
-          <p class="mt-3 text-sm">Moda francesa para personas que buscan equilibrio entre comodidad, diseno y elegancia funcional.</p>
-        </section>
-        <section>
-          <h4 class="font-bold text-[#152235]">Categorias</h4>
-          <ul class="mt-3 space-y-2 text-sm">
-            <li><a href="catalogo.html" class="hover:text-[#246a73]">Calzado</a></li>
-            <li><a href="catalogo.html" class="hover:text-[#246a73]">Camisas</a></li>
-            <li><a href="catalogo.html" class="hover:text-[#246a73]">Pantalones</a></li>
-            <li><a href="catalogo.html" class="hover:text-[#246a73]">Accesorios</a></li>
+    <footer class="mt-14 border-t border-[#e4ddd4] bg-[#f4efe8]" aria-labelledby="footer-brand">
+      <div class="mx-auto max-w-7xl px-4 py-10 sm:px-6 lg:px-10">
+        <div class="grid gap-8 md:grid-cols-4">
+          <section aria-labelledby="footer-brand">
+            <h2 id="footer-brand" class="[font-family:'Playfair_Display',serif] text-lg font-bold text-[#152235]">Maison Riviera</h2>
+            <p class="mt-3 text-sm text-[#666b73]">Moda francesa para personas que buscan equilibrio entre comodidad, diseño y elegancia funcional.</p>
+          </section>
+
+          <nav aria-labelledby="footer-categorias">
+            <h3 id="footer-categorias" class="font-bold text-[#152235]">Categorías</h3>
+            <ul class="mt-3 space-y-2 text-sm text-[#666b73]">
+              <li><a href="catalogo.html" class="transition hover:text-[#c76033] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#c76033] focus-visible:ring-offset-2 focus-visible:ring-offset-[#f4efe8]">Calzado</a></li>
+              <li><a href="catalogo.html" class="transition hover:text-[#c76033] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#c76033] focus-visible:ring-offset-2 focus-visible:ring-offset-[#f4efe8]">Camisas</a></li>
+              <li><a href="catalogo.html" class="transition hover:text-[#c76033] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#c76033] focus-visible:ring-offset-2 focus-visible:ring-offset-[#f4efe8]">Pantalones</a></li>
+              <li><a href="catalogo.html" class="transition hover:text-[#c76033] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#c76033] focus-visible:ring-offset-2 focus-visible:ring-offset-[#f4efe8]">Accesorios</a></li>
+            </ul>
+          </nav>
+
+          <nav aria-labelledby="footer-legal">
+            <h3 id="footer-legal" class="font-bold text-[#152235]">Legal</h3>
+            <ul class="mt-3 space-y-2 text-sm text-[#666b73]">
+              <li><a href="README.es.md" class="transition hover:text-[#c76033] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#c76033] focus-visible:ring-offset-2 focus-visible:ring-offset-[#f4efe8]">Términos y condiciones</a></li>
+              <li><a href="README.es.md" class="transition hover:text-[#c76033] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#c76033] focus-visible:ring-offset-2 focus-visible:ring-offset-[#f4efe8]">Política de privacidad</a></li>
+              <li><a href="README.es.md" class="transition hover:text-[#c76033] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#c76033] focus-visible:ring-offset-2 focus-visible:ring-offset-[#f4efe8]">Sobre la marca</a></li>
+            </ul>
+          </nav>
+
+          <section aria-labelledby="footer-contacto">
+            <h3 id="footer-contacto" class="font-bold text-[#152235]">Contacto</h3>
+            <address class="mt-3 space-y-2 text-sm not-italic text-[#666b73]">
+              <p>
+                <a href="mailto:hello@maisonriviera.fr" class="transition hover:text-[#c76033] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#c76033] focus-visible:ring-offset-2 focus-visible:ring-offset-[#f4efe8]" aria-label="Enviar correo a Maison Riviera">hello@maisonriviera.fr</a>
+              </p>
+              <p>
+                <a href="tel:+33184002218" class="transition hover:text-[#c76033] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#c76033] focus-visible:ring-offset-2 focus-visible:ring-offset-[#f4efe8]" aria-label="Llamar a Maison Riviera">+33 1 84 00 22 18</a>
+              </p>
+              <p>Paris, Francia</p>
+            </address>
+          </section>
+        </div>
+      </div>
+
+      <div class="border-t border-[#ded4c7] bg-[#fffaf3]">
+        <div class="mx-auto flex max-w-7xl flex-wrap items-center justify-between gap-3 px-4 py-4 sm:px-6 lg:px-10">
+          <p class="text-xs text-[#666b73]">© 2026 Maison Riviera. Todos los derechos reservados.</p>
+          <ul class="flex flex-wrap items-center gap-x-5 gap-y-2 text-xs font-semibold uppercase tracking-[0.08em] text-[#4b4f58]" aria-label="Indicadores de confianza">
+            <li>Pago seguro SSL</li>
+            <li>Envíos en 48 h</li>
+            <li>Devoluciones en 30 días</li>
           </ul>
-        </section>
-        <section>
-          <h4 class="font-bold text-[#152235]">Legal</h4>
-          <ul class="mt-3 space-y-2 text-sm">
-            <li><a href="#" class="hover:text-[#246a73]">Terminos y condiciones</a></li>
-            <li><a href="#" class="hover:text-[#246a73]">Politica de privacidad</a></li>
-            <li><a href="#" class="hover:text-[#246a73]">Sobre la marca</a></li>
-          </ul>
-        </section>
-        <section>
-          <h4 class="font-bold text-[#152235]">Contacto</h4>
-          <ul class="mt-3 space-y-2 text-sm">
-            <li>Email: hello@maisonriviera.fr</li>
-            <li>Telefono: +33 1 84 00 22 18</li>
-            <li>Paris, France</li>
-          </ul>
-        </section>
+        </div>
       </div>
     </footer>
   </body>
