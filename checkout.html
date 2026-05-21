@@ -18,7 +18,6 @@
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
     <link rel="stylesheet" href="assets/styles.css" />
     <link rel="stylesheet" href="assets/input-error.css" />
-    <script src="assets/main.js" defer></script>
   </head>
   <body>
     <!-- =============================== -->
@@ -53,32 +52,18 @@
     <!-- Checkout: pasos visuales -->
     <!-- =============================== -->
     <main class="site-shell py-8" data-checkout>
-      <!-- Pasos del checkout -->
-      <div class="flex items-center justify-between gap-2 sm:justify-start sm:gap-6">
-        <div class="flex items-center gap-2">
-          <span data-step-dot class="step-dot active">1</span>
-          <span class="text-xs font-semibold uppercase tracking-[0.12em]">Datos</span>
-        </div>
-        <div class="flex items-center gap-2">
-          <span data-step-dot class="step-dot">2</span>
-          <span class="text-xs font-semibold uppercase tracking-[0.12em]">Entrega</span>
-        </div>
-        <div class="flex items-center gap-2">
-          <span data-step-dot class="step-dot">3</span>
-          <span class="text-xs font-semibold uppercase tracking-[0.12em]">Pago</span>
-        </div>
-      </div>
+      
 
       <!-- Panel principal del checkout -->
       <section class="mt-8 glass-panel rounded-3xl p-6 md:p-8">
-        <p data-status class="text-sm font-semibold text-[#246a73]">Paso 1 de 3</p>
+
 
         <!-- =============================== -->
         <!-- Formulario de pasos del checkout -->
         <!-- =============================== -->
         <form class="mt-5">
-          <!-- Paso 1: Datos personales -->
-          <section data-step>
+          <!-- Contenedor 1: Datos personales -->
+          <section class="mb-8">
             <h2 class="text-2xl font-extrabold text-[#152235]">Datos personales</h2>
             <p class="mt-2 text-sm text-[#5d6874]">Ingresa tu información de contacto para identificar y confirmar tu pedido.</p>
             <div class="mt-4 grid gap-4 md:grid-cols-2">
@@ -94,8 +79,8 @@
             </div>
           </section>
 
-          <!-- Paso 2: Dirección de entrega -->
-          <section data-step class="hidden">
+          <!-- Contenedor 2: Dirección de entrega -->
+          <section class="mb-8">
             <h2 class="text-2xl font-extrabold text-[#152235]">Dirección de entrega</h2>
             <p class="mt-2 text-sm text-[#5d6874]">Completa la dirección donde quieres recibir tu compra.</p>
             <div class="mt-4 grid gap-4 md:grid-cols-2">
@@ -117,8 +102,8 @@
             </div>
           </section>
 
-          <!-- Paso 3: Pago con tarjeta -->
-          <section data-step class="hidden">
+          <!-- Contenedor 3: Pago con tarjeta -->
+          <section>
             <h2 class="text-2xl font-extrabold text-[#152235]">Pago con tarjeta</h2>
             <p class="mt-2 text-sm text-[#5d6874]">Introduce los datos de tu tarjeta para finalizar el proceso de pago.</p>
             <div class="mt-4 grid gap-4 md:grid-cols-2">
@@ -128,14 +113,17 @@
               <label class="text-sm font-semibold md:col-span-2">Número de tarjeta
                 <input type="number" required placeholder="4242 4242 4242 4242" class="mt-1 w-full rounded-xl border border-[#ddd1c2] bg-white px-3 py-2" />
               </label>
-                <label class="text-sm font-semibold">Vencimiento
-                  <input id="input-vencimiento" type="month" required class="w-full rounded-xl border border-[#ddd1c2] bg-white px-3 py-2" />
-                </label>
+              <label class="text-sm font-semibold">Vencimiento
+                <input id="input-vencimiento" type="month" required class="w-full rounded-xl border border-[#ddd1c2] bg-white px-3 py-2" />
+              </label>
               <label class="text-sm font-semibold">CVV
                 <input type="password" required placeholder="123" class="mt-1 w-full rounded-xl border border-[#ddd1c2] bg-white px-3 py-2" />
               </label>
             </div>
           </section>
+
+          <!-- Botón de finalizar compra -->
+          <button data-finish type="button" class="mt-4 rounded-full bg-[#246a73] border-2 border-[#174a3a] px-5 py-2 text-sm font-bold text-white shadow-sm hover:bg-[#174a3a] transition-colors">Finalizar compra</button>
         </form>
 
         <!-- =============================== -->
@@ -153,9 +141,9 @@
           </div>
 
           <!-- Botones de navegación de pasos -->
-          <button data-prev type="button" class="rounded-full border border-[#d8cec1] bg-white px-5 py-2 text-sm font-bold text-[#152235] disabled:cursor-not-allowed disabled:opacity-45">Anterior</button>
-          <button data-next type="button" class="rounded-full bg-[#152235] px-5 py-2 text-sm font-bold text-white">Siguiente</button>
-          <button data-finish type="button" class="hidden rounded-full bg-[#246a73] border-2 border-[#174a3a] px-5 py-2 text-sm font-bold text-white shadow-sm hover:bg-[#174a3a] transition-colors">Finalizar pago</button>
+          <!-- Eliminados los botones de anterior y siguiente -->
+
+          <!-- Eliminados los spans -->
         </div>
       </section>
     </main>
